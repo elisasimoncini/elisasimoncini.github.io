@@ -1,2 +1,2 @@
-# elisasimoncini-marketing
+# elisasimoncini
 Personal website
