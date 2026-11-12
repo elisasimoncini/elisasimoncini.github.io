@@ -85,7 +85,7 @@ const extras = {
     skillLead:'Come lavoro e cosa so fare.', softTitle:'Competenze trasversali', hardTitle:'Competenze professionali',
     soft:['Coordinamento collaborativo','Comunicazione e ascolto','Gestione delle relazioni','Problem solving','Gestione delle priorità','Adattabilità e autonomia'],
     hard:[['Project Management','Pianificazione, team, budget, scadenze e flussi di lavoro.'],['Marketing & Communication','Strategia, branding, social, advertising, web ed e-commerce.'],['Analytics & Reporting','Google Sheets, Looker Studio e monitoraggio delle attività.']],
-    certificateLabel:'Attestati e certificazioni', certView:'Visualizza attestato ↗',
+    certificateLabel:'Attestati e certificazioni', certView:'Visualizza attestato ↗', certAll:'Tutte', certPageTitle:'Tutti gli attestati', certPageIntro:'Corsi e certificazioni che accompagnano il mio percorso di formazione continua.', certPageBack:'← Torna a Chi sono', certEmpty:'Non ho ancora pubblicato attestati.',
     projectRole:'Il mio contributo', projectAbout:'Il progetto', projectBack:'← Torna ai progetti', pdfNote:'Materiali non pubblici o non ancora disponibili.',
     cvUnavailable:'Se desideri una versione del mio CV, puoi anche contattarmi via email.',
     projectEmpty:'I progetti saranno disponibili in questa sezione man mano che saranno pubblicati.',
@@ -118,7 +118,7 @@ const extras = {
     skillLead:'How I work and what I bring.', softTitle:'People & collaboration', hardTitle:'Professional expertise',
     soft:['Collaborative coordination','Communication & listening','Stakeholder relationships','Problem solving','Prioritisation','Adaptability & autonomy'],
     hard:[['Project Management','Planning, teams, budgets, deadlines and workflows.'],['Marketing & Communication','Strategy, brand, social, advertising, websites and e-commerce.'],['Analytics & Reporting','Google Sheets, Looker Studio and performance tracking.']],
-    certificateLabel:'Certificates & credentials', certView:'View certificate ↗',
+    certificateLabel:'Certificates & credentials', certView:'View certificate ↗', certAll:'All', certPageTitle:'All certificates', certPageIntro:'Training and credentials that are part of my ongoing professional development.', certPageBack:'← Back to About', certEmpty:'No certificates published yet.',
     projectRole:'My contribution',projectAbout:'About this project',projectBack:'← Back to projects',pdfNote:'Materials are not public or not yet available.',
     cvUnavailable:'If you would like a copy of my CV, feel free to get in touch by email.',
     projectEmpty:'Projects will appear here as they are published.',
@@ -151,7 +151,7 @@ const extras = {
     skillLead:'Cómo trabajo y qué puedo aportar.',softTitle:'Competencias interpersonales',hardTitle:'Competencias profesionales',
     soft:['Coordinación colaborativa','Comunicación y escucha','Relaciones con stakeholders','Resolución de problemas','Gestión de prioridades','Adaptabilidad y autonomía'],
     hard:[['Gestión de proyectos','Planificación, equipos, presupuestos, plazos y procesos.'],['Marketing y comunicación','Estrategia, marca, redes sociales, publicidad, web y e-commerce.'],['Análisis e informes','Google Sheets, Looker Studio y seguimiento de resultados.']],
-    certificateLabel:'Certificados y acreditaciones',certView:'Ver certificado ↗',
+    certificateLabel:'Certificados y acreditaciones',certView:'Ver certificado ↗',certAll:'Todos',certPageTitle:'Todos los certificados',certPageIntro:'Cursos y certificados que forman parte de mi formación continua.',certPageBack:'← Volver a Sobre mí',certEmpty:'Todavía no he publicado certificados.',
     projectRole:'Mi contribución',projectAbout:'Sobre el proyecto',projectBack:'← Volver a proyectos',pdfNote:'Materiales no públicos o todavía no disponibles.',
     cvUnavailable:'Si deseas recibir una copia de mi CV, puedes escribirme por correo electrónico.',
     projectEmpty:'Los proyectos aparecerán aquí a medida que se publiquen.',
@@ -193,7 +193,7 @@ function docButton(path,label,cssClass='button ghost',extraAttrs=''){
 }
 function path(){
  const slug=(location.hash||'#/home').slice(2);
- if(['home','about','projects'].includes(slug)) return {route:slug};
+ if(['home','about','projects','certificates'].includes(slug)) return {route:slug};
  if(slug.startsWith('project/')) return {route:'project',slug:safeId(slug.slice(8))};
  return {route:'home'};
 }
@@ -222,9 +222,30 @@ function renderEducation(x){
  return `<div class="education-gallery">${x.education.map(([institution,degree,year],i)=>`
  <article class="education-card"><div class="education-photo-frame"><img class="education-photo edu-${i}" src="${files[i]}" alt="${esc(alts[language][i])}" loading="lazy" decoding="async"></div><div class="education-caption"><span class="education-year">${esc(year)}</span><h3>${esc(institution)}</h3><p>${esc(degree)}</p>${i===1?`<p class="image-credit"><a href="${UMA_CREDIT}" target="_blank" rel="noopener noreferrer">${esc(x.photoCredit)} ↗</a></p>`:''}</div></article>`).join('')}</div>`;
 }
+// Order credentials newest first. Optional date: YYYY-MM-DD (preferred);
+// otherwise year: YYYY. When dates match, keep the order in certificates.json.
+function sortedCertificates(){
+ const rank=cert=>{
+  const date=String(cert?.date||'').trim();
+  if(/^\d{4}-\d{2}-\d{2}$/.test(date) && !Number.isNaN(Date.parse(date)))return Date.parse(date);
+  const year=String(cert?.year||'').match(/(?:19|20)\d{2}/);
+  return year?Date.UTC(Number(year[0]),0,1):0;
+ };
+ return certificateData.map((cert,i)=>({cert,i})).sort((a,b)=>rank(b.cert)-rank(a.cert)||a.i-b.i).map(item=>item.cert);
+}
+function certificateCard(cert,x){
+ const href=fileHref(cert.file),ready=Boolean(href&&availableDocs.get(href)===true);
+ const subtitle=[cert.issuer,cert.year].filter(Boolean).map(esc).join(' · ');
+ return `<article class="cert"><strong>${esc(cert.title)}</strong><span>${subtitle}</span>${ready?`<a href="${href}" target="_blank" rel="noopener noreferrer">${esc(x.certView)}</a>`:''}</article>`;
+}
 function renderSkills(x,t){
+ const recent=sortedCertificates().slice(0,3);
  return `<p class="body-lead">${esc(x.skillLead)}</p><div class="skills-columns"><div><h3 class="skill-heading">${esc(x.softTitle)}</h3><ul class="skill-tags">${x.soft.map(s=>`<li>${esc(s)}</li>`).join('')}</ul></div><div><h3 class="skill-heading">${esc(x.hardTitle)}</h3><div class="hard-skill-list">${x.hard.map(([title,desc])=>`<div class="hard-skill"><strong>${esc(title)}</strong><p>${esc(desc)}</p></div>`).join('')}</div></div></div>
- <div class="certificates-section"><h3 class="skill-heading">${esc(x.certificateLabel)}</h3><div class="cert-list">${certificateData.map(cert=>{const href=fileHref(cert.file);const ready=href&&availableDocs.get(href)===true;return `<article class="cert"><strong>${esc(cert.title)}</strong><span>${esc(cert.issuer)} · ${esc(cert.year)}</span>${ready?`<a href="${href}" target="_blank" rel="noopener noreferrer">${esc(x.certView)}</a>`:''}</article>`}).join('')}</div></div>`;
+ <div class="certificates-section"><div class="cert-heading-row"><h3 class="skill-heading">${esc(x.certificateLabel)}</h3><a class="cert-all-link" href="#/certificates" aria-label="${esc(x.certPageTitle)}">${esc(x.certAll)} <span aria-hidden="true">↗</span></a></div><div class="cert-list">${recent.length?recent.map(cert=>certificateCard(cert,x)).join(''):`<p class="empty-note">${esc(x.certEmpty)}</p>`}</div></div>`;
+}
+function renderCertificates(t){
+ const x=extra();const all=sortedCertificates();
+ return `<section class="page-hero certificates-page-hero"><div class="wrap"><span class="eyebrow">ELISA SIMONCINI / ${esc(t.aboutNav.toUpperCase())}</span><a class="inline-link back-link" href="#/about">${esc(x.certPageBack)}</a><h1 class="display-heading">${esc(x.certPageTitle)}<span class="period">.</span></h1><p class="page-intro">${esc(x.certPageIntro)}</p></div></section><hr class="rule"><section class="section certificates-page"><div class="wrap"><div class="cert-list">${all.length?all.map(cert=>certificateCard(cert,x)).join(''):`<p class="empty-note">${esc(x.certEmpty)}</p>`}</div></div></section>`;
 }
 function renderCvs(x,t){
  const buttons=['it','en','es'].filter(l=>cvData[l]).map(l=>docButton(cvData[l],t.cvButton+' · '+l.toUpperCase()+' ↓')).join('');
@@ -267,16 +288,16 @@ function renderProjectDetail(t,slug){
 }
 function render(){
  const t=translations();const x=extra();const current=path();
- main.innerHTML=current.route==='home'?renderHome(t):current.route==='about'?renderAbout(t):current.route==='projects'?renderProjects(t):renderProjectDetail(t,current.slug);
+ main.innerHTML=current.route==='home'?renderHome(t):current.route==='about'?renderAbout(t):current.route==='projects'?renderProjects(t):current.route==='certificates'?renderCertificates(t):renderProjectDetail(t,current.slug);
  document.documentElement.lang=language;
- document.title=`Elisa Simoncini | ${current.route==='home'?'Portfolio':current.route==='about'?t.aboutTitle:current.route==='projects'?t.projectTitle:'Portfolio'}`;
+ document.title=`Elisa Simoncini | ${current.route==='home'?'Portfolio':current.route==='about'?t.aboutTitle:current.route==='projects'?t.projectTitle:current.route==='certificates'?x.certPageTitle:'Portfolio'}`;
  document.getElementById('nav-about').textContent=t.aboutNav;
  document.getElementById('nav-projects').textContent=t.projectsNav;
  document.getElementById('footer-label').textContent=t.footerLabel;
  document.getElementById('footer-title').innerHTML=esc(t.footerTitle)+'<span class="period">.</span>';
  document.querySelector('.footer-meta>span:nth-child(3)').textContent=t.place;
  document.querySelectorAll('.site-navigation a[data-route]').forEach(a=>{
-  const active=a.dataset.route===current.route || (a.dataset.route==='projects' && current.route==='project');
+  const active=a.dataset.route===current.route || (a.dataset.route==='projects' && current.route==='project') || (a.dataset.route==='about' && current.route==='certificates');
   a.classList.toggle('is-active',active); if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
  });
  document.querySelectorAll('.lang-btn').forEach(b=>{const active=b.dataset.lang===language;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
@@ -365,7 +386,7 @@ document.addEventListener('click',e=>{
 document.getElementById('year').textContent=new Date().getFullYear();
 async function loadData(){
  const read=async(path,fallback)=>{
-  try{const r=await fetch(path+'?v=3',{cache:'no-store'});if(!r.ok)throw new Error(r.status);return await r.json();}
+  try{const r=await fetch(path+'?v=4',{cache:'no-store'});if(!r.ok)throw new Error(r.status);return await r.json();}
   catch(err){console.warn('Cannot load',path,err);return fallback;}
  };
  const [projects,certificates,cv]=await Promise.all([

@@ -71,3 +71,19 @@
 @media(prefers-reduced-motion:reduce){.value-core,.timeline-progress,.timeline-info,.timeline-marker,.education-photo{transition:none!important}.timeline.timeline-ready .timeline-info{opacity:1!important;transform:none!important}.timeline-progress{transform:scaleY(1)!important}}
 .image-credit[hidden]{display:none!important}
 .photo-unavailable::before{content:'Universidad de Málaga';position:absolute;inset:0;display:grid;place-items:center;color:var(--burgundy);font-family:var(--serif);font-size:24px;text-align:center;padding:25px;background:linear-gradient(145deg,var(--blue),var(--cream))}
+
+
+/* V4: compact recent certificate cards and internal certificate archive */
+.cert-heading-row{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.cert-heading-row .skill-heading{margin-bottom:0}
+.cert-all-link{display:inline-flex;align-items:center;gap:12px;color:var(--burgundy);font-size:13px;font-weight:800;white-space:nowrap;text-decoration:none;border-bottom:1px solid var(--burgundy);padding:7px 0;transition:gap .2s ease}
+.cert-all-link:hover{gap:18px}
+.cert-all-link:focus-visible,.cert a:focus-visible{outline:2px solid var(--burgundy);outline-offset:5px}
+.certificates-section .cert-list,.certificates-page .cert-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:25px}
+.certificates-section .cert{min-height:122px;padding:19px 18px}
+.certificates-page .cert{min-height:155px;padding:24px}
+.cert .cert-meta{display:block}
+.certificates-page-hero .back-link{display:table;margin:28px 0 12px}
+@media(max-width:950px){.certificates-section .cert-list,.certificates-page .cert-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.certificates-section .cert-list,.certificates-page .cert-list{grid-template-columns:1fr}.certificates-page-hero .back-link{margin-top:23px}}
+@media(prefers-reduced-motion:reduce){.cert-all-link{transition:none}}
