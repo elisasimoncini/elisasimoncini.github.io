@@ -234,9 +234,15 @@ function sortedCertificates(){
  return certificateData.map((cert,i)=>({cert,i})).sort((a,b)=>rank(b.cert)-rank(a.cert)||a.i-b.i).map(item=>item.cert);
 }
 function certificateCard(cert,x){
- const href=fileHref(cert.file),ready=Boolean(href&&availableDocs.get(href)===true);
+ const href=fileHref(cert.file);
+ const ready=Boolean(href && availableDocs.get(href)===true);
  const subtitle=[cert.issuer,cert.year].filter(Boolean).map(esc).join(' · ');
- return `<article class="cert"><strong>${esc(cert.title)}</strong><span>${subtitle}</span>${ready?`<a href="${href}" target="_blank" rel="noopener noreferrer">${esc(x.certView)}</a>`:''}</article>`;
+ // PNG/JPG/WebP credentials show a real preview. PDFs stay as a typographic tile.
+ const isImage=ready && /\.(png|jpe?g|webp|avif|gif)(?:$|\?)/i.test(href);
+ const cover=isImage
+  ? `<a class="cert-visual cert-visual--image" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${esc(x.certView)}: ${esc(cert.title)}"><img src="${href}" alt="" loading="lazy" decoding="async"></a>`
+  : `<div class="cert-visual cert-visual--graphic" aria-hidden="true"><span class="cert-visual-mark">ES<span class="cert-visual-dot">.</span></span><span class="cert-visual-caption">CERTIFICATE</span></div>`;
+ return `<article class="cert cert--visual">${cover}<div class="cert-information"><strong>${esc(cert.title)}</strong><span class="cert-meta">${subtitle}</span>${ready?`<a class="cert-view" href="${href}" target="_blank" rel="noopener noreferrer">${esc(x.certView)}</a>`:''}</div></article>`;
 }
 function renderSkills(x,t){
  const recent=sortedCertificates().slice(0,3);
@@ -393,7 +399,7 @@ document.addEventListener('click',e=>{
 document.getElementById('year').textContent=new Date().getFullYear();
 async function loadData(){
  const read=async(path,fallback)=>{
-  try{const r=await fetch(path+'?v=5',{cache:'no-store'});if(!r.ok)throw new Error(r.status);return await r.json();}
+  try{const r=await fetch(path+'?v=6',{cache:'no-store'});if(!r.ok)throw new Error(r.status);return await r.json();}
   catch(err){console.warn('Cannot load',path,err);return fallback;}
  };
  const [projects,certificates,cv]=await Promise.all([

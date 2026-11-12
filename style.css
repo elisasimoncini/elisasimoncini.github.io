@@ -87,3 +87,22 @@
 @media(max-width:950px){.certificates-section .cert-list,.certificates-page .cert-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.certificates-section .cert-list,.certificates-page .cert-list{grid-template-columns:1fr}.certificates-page-hero .back-link{margin-top:23px}}
 @media(prefers-reduced-motion:reduce){.cert-all-link{transition:none}}
+
+
+/* V6: anteprime reali degli attestati, senza cambiare le altre sezioni. */
+.certificates-section .cert-list, .certificates-page .cert-list{align-items:stretch}
+.cert.cert--visual{padding:0;display:flex;flex-direction:column;min-width:0;min-height:0;overflow:hidden;background:rgba(255,255,255,.32);border:1px solid var(--border)}
+.cert-visual{display:flex;align-items:center;justify-content:center;position:relative;width:100%;aspect-ratio:16/11;overflow:hidden;border-bottom:1px solid var(--border);background:#eae0dc}
+.cert-visual--image img{display:block;max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain;transition:transform .4s ease}
+.cert-visual--graphic{background:linear-gradient(127deg,rgba(217,169,181,.52),rgba(245,240,231,.94) 62%,rgba(183,201,222,.45));color:var(--burgundy);flex-direction:column;gap:8px}
+.cert-visual-mark{font-family:var(--serif);font-size:clamp(41px,4.8vw,68px);font-weight:500;letter-spacing:-.07em;line-height:1}
+.cert-visual-dot{color:var(--pink)}
+.cert-visual-caption{font-family:var(--sans);font-size:9px;letter-spacing:.2em;font-weight:800}
+.cert-information{padding:19px 20px 22px;display:flex;flex-direction:column;align-items:flex-start;flex:1}
+.cert-information strong{font-size:clamp(14px,1.25vw,17px);line-height:1.4;margin:0 0 9px}
+.cert-information .cert-meta{font-size:12px;line-height:1.5;color:var(--espresso);opacity:.8}
+.cert-information .cert-view{margin-top:auto;padding-top:21px;display:inline-flex;border-bottom:1px solid transparent;line-height:1.45}
+.cert-information .cert-view:hover{border-bottom-color:currentColor}
+.cert-visual--image:focus-visible,.cert-information a:focus-visible{outline:3px solid var(--burgundy);outline-offset:-3px}
+@media(hover:hover) and (pointer:fine){.cert-visual--image:hover img{transform:scale(1.045)}}
+@media(prefers-reduced-motion:reduce){.cert-visual--image img{transition:none!important}}
