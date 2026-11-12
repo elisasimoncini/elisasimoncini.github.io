@@ -1,13 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F5F0E7">
+  <meta name="description" content="Elisa Simoncini · Project Manager & Marketing Strategist. Portfolio, professional background and selected work.">
   <title>Elisa Simoncini | Portfolio</title>
+  <link rel="icon" href="assets/monogram.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <h1>Elisa Simoncini</h1>
-  <p>Project Manager & Marketing Strategist</p>
-  <h2>Work to impact.</h2>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="click-layer" id="click-layer" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#/home" aria-label="Elisa Simoncini, home"><img src="assets/wordmark.png" alt="Elisa Simoncini"></a>
+      <button class="mobile-toggle" id="mobile-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Open navigation"><span></span><span></span></button>
+      <nav id="site-navigation" class="site-navigation" aria-label="Primary navigation">
+        <a data-route="about" href="#/about" id="nav-about">Chi sono</a>
+        <a data-route="projects" href="#/projects" id="nav-projects">Esplora i progetti</a>
+        <div class="lang-picker" role="group" aria-label="Language / Lingua / Idioma">
+          <button class="lang-btn active" type="button" data-lang="it" aria-label="Italiano" aria-pressed="true">IT</button><span>/</span>
+          <button class="lang-btn" type="button" data-lang="en" aria-label="English" aria-pressed="false">EN</button><span>/</span>
+          <button class="lang-btn" type="button" data-lang="es" aria-label="Español" aria-pressed="false">ES</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main id="main" tabindex="-1"></main>
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <button id="footer-monogram" class="monogram-button" type="button" aria-label="Enlarge ES monogram" aria-pressed="false"><img src="assets/monogram.png" alt="ES"></button>
+      <div class="footer-copy"><span class="eyebrow" id="footer-label">RESTIAMO IN CONTATTO</span><h2 id="footer-title">Let's connect<span class="period">.</span></h2><a class="footer-mail" href="mailto:elisa.simoncini01@gmail.com">elisa.simoncini01@gmail.com ↗</a></div>
+      <div class="footer-meta"><a href="https://www.linkedin.com/in/elisa-simoncini-/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><span>Roma, Italia</span><span>© <span id="year">2026</span> Elisa Simoncini</span></div>
+    </div>
+    <img class="footer-wave" src="assets/onda.png" alt="" aria-hidden="true">
+  </footer>
 </body>
 </html>

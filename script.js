@@ -1,0 +1,116 @@
+/* ELISA SIMONCINI · Portfolio / Edit translation strings and projects here. */
+const content = {
+  it: {
+    aboutNav:'Chi sono',projectsNav:'Esplora i progetti',footerLabel:'RESTIAMO IN CONTATTO',footerTitle:'Parliamone',place:'Roma, Italia',
+    kicker:'PROJECT MANAGER & MARKETING STRATEGIST',heroLine:'Collego strategia, persone e organizzazione per trasformare le idee in progetti concreti.',scroll:'SCOPRI DI PIÙ',
+    whatLabel:'01 / IL MIO APPROCCIO',whatTitle:'Cosa faccio.',whatLead:'Mi occupo di progetti integrati di marketing e comunicazione, dal primo confronto alla realizzazione.',whatBody:'Lavoro tra strategia ed esecuzione: coordino team multidisciplinari, risorse e tempistiche, tenendo insieme obiettivi, persone e dettagli. Mi interessa costruire processi chiari, collaborazioni efficaci e progetti che abbiano un senso.',
+    exploreLabel:'02 / PORTFOLIO',exploreTitle:'Le idee prendono forma.',exploreLead:'Ogni progetto ha una storia, un obiettivo e un modo diverso di arrivarci. Esplora quelli che ho scelto di raccontare.',exploreButton:'ESPLORA I PROGETTI',
+    homeAbout:'SCOPRI CHI SONO',aboutTitle:'Chi sono',aboutIntro:'Una formazione multidisciplinare, una curiosità internazionale e una convinzione: i risultati migliori nascono quando persone, idee e organizzazione lavorano insieme.',
+    bioLabel:'01 / ABOUT ME',bioTitle:'Non solo un ruolo.',bioLead:'Sono una Project Manager & Marketing Strategist con esperienza in progetti integrati di marketing e comunicazione per imprese, organizzazioni e Pubbliche Amministrazioni.',bioBody:'Mi piace mettere ordine nella complessità, connettere prospettive diverse e trasformare obiettivi condivisi in attività concrete. Cerco il punto d’incontro tra visione strategica e attenzione alle persone.',
+    beyondLabel:'02 / BEYOND THE JOB TITLE',beyondTitle:'Le persone, prima dei processi.',beyondLead:'Nel mio lavoro ascoltare, mediare e creare connessioni conta quanto pianificare. Affronto le sfide con curiosità, autonomia e uno spirito pratico.',
+    expLabel:'03 / ESPERIENZA',expTitle:'Il mio percorso.',industryPM:'Gestione end-to-end di progetti integrati di marketing e comunicazione, coordinamento di team, risorse e budget. Contributo alla strategia e sviluppo di strumenti di pianificazione e monitoraggio con Google Sheets e Looker Studio.',intern:'Supporto alla produzione di contenuti di comunicazione e all’analisi delle performance digitali.',other:'Organizzazione di eventi e attività sul campo; supporto in contesti internazionali e attività di coordinamento e relazione con il pubblico.',
+    eduLabel:'04 / FORMAZIONE',eduTitle:'Studio e prospettive.',eduMaster:'Laurea magistrale in Economia e Management Internazionale · Marketing e Digital Export · 110/110 e lode · 2025',eduBachelor:'Laurea triennale in Scienze Politiche e Relazioni Internazionali · 104/110 · 2023',eduErasmus:'Erasmus+ · studio e tirocinio a Málaga, Spagna · 2025',
+    skillsLabel:'05 / COMPETENZE',skillsTitle:'Competenze e certificazioni.',skillsSub:'Le competenze che porto nei progetti',certTitle:'Certificazioni Learnn · 2025',certNote:'Gli attestati PDF potranno essere collegati qui quando li caricheremo.',
+    cvLabel:'06 / CURRICULUM',cvTitle:'Il mio CV, nella tua lingua.',cvIntro:'Scarica la versione che preferisci.',cvButton:'SCARICA CV',
+    projectTitle:'Esplora i progetti',projectIntro:'Una selezione di lavori e strumenti raccontati dal punto di vista del mio contributo. Filtra per ambito e scegli cosa approfondire.',
+    filters:['Tutti','Project Management','Marketing Strategy','Digital & Communication','Events'],
+    toolkitTitle:'Strumenti per organizzare il lavoro',toolkitDesc:'Strumenti di pianificazione e monitoraggio realizzati con Google Sheets e Looker Studio per rendere più chiari i flussi operativi.',toolkitCategory:'PROJECT MANAGEMENT',toolkitMore:'SCOPRI IL PROGETTO',toolkitTag:'PROCESSI · REPORTING',
+    toolkitDetailIntro:'Nel mio lavoro in INDUSTRY ho contribuito a sviluppare strumenti interni basati su Google Sheets e Looker Studio, pensati per supportare pianificazione, monitoraggio e coordinamento operativo.',toolkitDetailRole:'Il mio contributo',toolkitDetailRoleText:'Progettazione e sviluppo di strumenti di project management per semplificare la lettura delle informazioni e il lavoro dei team.',toolkitDetailNote:'Le schermate e i materiali operativi non sono pubblicati per tutelare informazioni aziendali.',backProjects:'← TORNA AI PROGETTI',
+    empty:'Non ci sono ancora progetti pubblicati in questa categoria. Aggiungeremo nuove presentazioni man mano che saranno pronte.',noPdf:'Presentazione PDF in preparazione',
+    skillTags:['Coordinamento di team','Comunicazione e ascolto','Gestione degli stakeholder','Problem solving','Organizzazione e priorità','Marketing integrato','Reporting e monitoraggio','Google Sheets · Looker Studio'],
+    certs:['Project Management','Social Media Strategy','Brand Strategy','ADV Strategy']
+  },
+  en: {
+    aboutNav:'About',projectsNav:'Explore projects',footerLabel:'LET’S CONNECT',footerTitle:'Let’s connect',place:'Rome, Italy',
+    kicker:'PROJECT MANAGER & MARKETING STRATEGIST',heroLine:'Bringing strategy, people and execution together to turn ideas into meaningful projects.',scroll:'SCROLL TO EXPLORE',
+    whatLabel:'01 / WHAT I DO',whatTitle:'What I do.',whatLead:'I manage integrated marketing and communication projects, from the first conversation to delivery.',whatBody:'I work where strategy meets execution: coordinating multidisciplinary teams, resources and timelines while keeping goals, people and details aligned. I care about clear processes, productive collaboration and purposeful work.',
+    exploreLabel:'02 / PORTFOLIO',exploreTitle:'Ideas take shape.',exploreLead:'Every project has its own story, challenge and way forward. Explore the work I have chosen to share.',exploreButton:'EXPLORE PROJECTS',
+    homeAbout:'GET TO KNOW ME',aboutTitle:'About me',aboutIntro:'A multidisciplinary education, an international outlook and one belief: the best outcomes happen when people, ideas and organisation work together.',
+    bioLabel:'01 / ABOUT ME',bioTitle:'More than a job title.',bioLead:'I am a Project Manager & Marketing Strategist experienced in integrated marketing and communication projects for companies, organisations and public administrations.',bioBody:'I enjoy bringing clarity to complexity, connecting different perspectives and turning shared goals into practical action. I look for the space between strategic vision and genuine attention to people.',
+    beyondLabel:'02 / BEYOND THE JOB TITLE',beyondTitle:'People before processes.',beyondLead:'Listening, finding common ground and building relationships matter just as much to me as planning. I approach challenges with curiosity, independence and a practical mindset.',
+    expLabel:'03 / EXPERIENCE',expTitle:'My journey.',industryPM:'End-to-end management of integrated marketing and communication projects, coordinating teams, resources and budgets. Contributing to strategy and developing planning and monitoring tools with Google Sheets and Looker Studio.',intern:'Supporting communication content production and digital performance analysis.',other:'Organising events and on-site activities; supporting international environments and coordinating activities with a strong people-facing element.',
+    eduLabel:'04 / EDUCATION',eduTitle:'Learning and perspective.',eduMaster:'MSc in International Economics and Management · Marketing and Digital Export · 110/110 with honours · 2025',eduBachelor:'BA in Political Science and International Relations · 104/110 · 2023',eduErasmus:'Erasmus+ · study and internship in Málaga, Spain · 2025',
+    skillsLabel:'05 / SKILLS',skillsTitle:'Skills & certifications.',skillsSub:'What I bring to a project',certTitle:'Learnn certifications · 2025',certNote:'Certificate PDFs can be linked here once uploaded.',
+    cvLabel:'06 / RESUME',cvTitle:'My CV, in your language.',cvIntro:'Choose the version that works best for you.',cvButton:'DOWNLOAD CV',
+    projectTitle:'Explore projects',projectIntro:'A selection of work and tools viewed through the lens of my contribution. Filter by field and choose what to explore.',filters:['All','Project Management','Marketing Strategy','Digital & Communication','Events'],
+    toolkitTitle:'Tools for better workflows',toolkitDesc:'Planning and monitoring tools built with Google Sheets and Looker Studio to make operational workflows clearer.',toolkitCategory:'PROJECT MANAGEMENT',toolkitMore:'VIEW PROJECT',toolkitTag:'WORKFLOWS · REPORTING',
+    toolkitDetailIntro:'At INDUSTRY I contributed to internal tools built with Google Sheets and Looker Studio, designed to support planning, monitoring and day-to-day coordination.',toolkitDetailRole:'My contribution',toolkitDetailRoleText:'Designing and developing project management tools to simplify information-sharing and teamwork.',toolkitDetailNote:'Screenshots and operational materials are not shared to protect company information.',backProjects:'← BACK TO PROJECTS',
+    empty:'No projects have been published in this category yet. New presentations will appear here as they become available.',noPdf:'PDF presentation coming soon',
+    skillTags:['Team coordination','Communication & listening','Stakeholder relationships','Problem solving','Planning & priorities','Integrated marketing','Reporting & monitoring','Google Sheets · Looker Studio'],
+    certs:['Project Management','Social Media Strategy','Brand Strategy','ADV Strategy']
+  },
+  es: {
+    aboutNav:'Sobre mí',projectsNav:'Explorar proyectos',footerLabel:'HABLEMOS',footerTitle:'Hablemos',place:'Roma, Italia',
+    kicker:'PROJECT MANAGER & MARKETING STRATEGIST',heroLine:'Conecto estrategia, personas y ejecución para transformar ideas en proyectos con sentido.',scroll:'DESLIZA PARA EXPLORAR',
+    whatLabel:'01 / QUÉ HAGO',whatTitle:'Qué hago.',whatLead:'Gestiono proyectos integrados de marketing y comunicación, desde la primera conversación hasta su realización.',whatBody:'Trabajo entre la estrategia y la ejecución: coordino equipos multidisciplinares, recursos y plazos, conectando objetivos, personas y detalles. Me interesan los procesos claros, las colaboraciones eficaces y los proyectos con propósito.',
+    exploreLabel:'02 / PORTAFOLIO',exploreTitle:'Las ideas toman forma.',exploreLead:'Cada proyecto tiene su historia, sus retos y su propio camino. Explora los trabajos que he elegido compartir.',exploreButton:'EXPLORAR PROYECTOS',
+    homeAbout:'CONÓCEME',aboutTitle:'Sobre mí',aboutIntro:'Una formación multidisciplinar, una perspectiva internacional y una convicción: los mejores resultados nacen cuando personas, ideas y organización trabajan juntas.',
+    bioLabel:'01 / SOBRE MÍ',bioTitle:'Más que un cargo.',bioLead:'Soy Project Manager & Marketing Strategist con experiencia en proyectos integrados de marketing y comunicación para empresas, organizaciones y administraciones públicas.',bioBody:'Me gusta aportar claridad a la complejidad, conectar distintas perspectivas y convertir objetivos compartidos en acciones concretas. Busco el equilibrio entre visión estratégica y atención a las personas.',
+    beyondLabel:'02 / MÁS ALLÁ DEL CARGO',beyondTitle:'Las personas, antes que los procesos.',beyondLead:'Escuchar, mediar y crear vínculos es tan importante para mí como planificar. Afronto los retos con curiosidad, autonomía y sentido práctico.',
+    expLabel:'03 / EXPERIENCIA',expTitle:'Mi trayectoria.',industryPM:'Gestión integral de proyectos de marketing y comunicación, coordinación de equipos, recursos y presupuestos. Apoyo a la estrategia y desarrollo de herramientas de planificación y seguimiento con Google Sheets y Looker Studio.',intern:'Apoyo en la creación de contenidos de comunicación y el análisis del rendimiento digital.',other:'Organización de eventos y actividades presenciales; apoyo en entornos internacionales y coordinación de actividades de atención al público.',
+    eduLabel:'04 / FORMACIÓN',eduTitle:'Aprendizaje y perspectivas.',eduMaster:'Máster en Economía y Gestión Internacional · Marketing y Exportación Digital · 110/110 cum laude · 2025',eduBachelor:'Grado en Ciencias Políticas y Relaciones Internacionales · 104/110 · 2023',eduErasmus:'Erasmus+ · estudios y prácticas en Málaga, España · 2025',
+    skillsLabel:'05 / COMPETENCIAS',skillsTitle:'Competencias y certificaciones.',skillsSub:'Lo que aporto a cada proyecto',certTitle:'Certificaciones Learnn · 2025',certNote:'Podremos enlazar aquí los certificados PDF cuando se suban.',
+    cvLabel:'06 / CURRÍCULUM',cvTitle:'Mi CV, en tu idioma.',cvIntro:'Descarga la versión que prefieras.',cvButton:'DESCARGAR CV',
+    projectTitle:'Explorar proyectos',projectIntro:'Una selección de trabajos y herramientas desde la perspectiva de mi contribución. Filtra por área y descubre lo que más te interesa.',filters:['Todos','Project Management','Marketing Strategy','Digital & Communication','Eventos'],
+    toolkitTitle:'Herramientas para organizar el trabajo',toolkitDesc:'Herramientas de planificación y seguimiento desarrolladas con Google Sheets y Looker Studio para mejorar los flujos operativos.',toolkitCategory:'PROJECT MANAGEMENT',toolkitMore:'VER PROYECTO',toolkitTag:'PROCESOS · INFORMES',
+    toolkitDetailIntro:'En INDUSTRY participé en el desarrollo de herramientas internas basadas en Google Sheets y Looker Studio para facilitar la planificación, el seguimiento y la coordinación diaria.',toolkitDetailRole:'Mi contribución',toolkitDetailRoleText:'Diseño y desarrollo de herramientas de gestión de proyectos para facilitar el acceso a la información y el trabajo en equipo.',toolkitDetailNote:'No se comparten capturas ni materiales operativos para proteger la información de la empresa.',backProjects:'← VOLVER A PROYECTOS',
+    empty:'Todavía no hay proyectos publicados en esta categoría. Añadiremos nuevas presentaciones cuando estén listas.',noPdf:'Presentación PDF próximamente',
+    skillTags:['Coordinación de equipos','Comunicación y escucha','Relación con stakeholders','Resolución de problemas','Organización y prioridades','Marketing integrado','Informes y seguimiento','Google Sheets · Looker Studio'],
+    certs:['Project Management','Social Media Strategy','Brand Strategy','ADV Strategy']
+  }
+};
+let language = localStorage.getItem('elisa-language');
+if (!['it','en','es'].includes(language)) language='it';
+let selectedCategory='all';
+const main=document.getElementById('main');
+const translations=()=>content[language];
+const path=()=>{const p=(location.hash||'#/home').slice(2);return ['home','about','projects','toolkit'].includes(p)?p:'home'};
+function section(label,title,inner,extra=''){
+ return `<section class="section ${extra}"><div class="wrap section-grid"><div class="label-index">${label}</div><div><h2 class="display-heading">${title}</h2>${inner}</div></div></section>`;
+}
+function renderHome(t){
+ return `<section class="hero"><div class="wrap hero-grid"><div class="hero-content"><div class="eyebrow hero-kicker">${t.kicker}</div><h1 class="hero-title"><span class="work">Work to</span><em class="impact">impact.</em></h1><p class="hero-sub">${t.heroLine}</p><div class="hero-button-row"><a class="button primary" href="#/projects">${t.exploreButton} <span aria-hidden="true">↗</span></a><a class="button ghost" href="#/about">${t.homeAbout} <span aria-hidden="true">→</span></a></div></div><div class="hero-art" aria-hidden="true"><span class="circle pink"></span><span class="circle blue"></span><span class="art-line"></span></div></div><div class="hero-scrolldown">${t.scroll}</div></section><hr class="rule">`+
+ section(t.whatLabel,t.whatTitle,`<p class="body-lead">${t.whatLead}</p><p class="body-copy">${t.whatBody}</p><a class="inline-link" href="#/about">${t.homeAbout} →</a>`)+
+ section(t.exploreLabel,t.exploreTitle,`<p class="body-lead">${t.exploreLead}</p><a class="button primary" href="#/projects">${t.exploreButton} <span>↗</span></a>`,'teaser');
+}
+function renderAbout(t){
+ const exp=[['INDUSTRY · Project Manager & Marketing Strategist','Roma · 2025 —',t.industryPM],['INDUSTRY · Copywriting & Digital Analytics Intern','Roma · 2025',t.intern],['Bimbo Mix · Ryder Cup · Hotel Eurolido','2018 — 2024',t.other]];
+ const education=[['UNINT',t.eduMaster],['Sapienza Università di Roma',t.eduBachelor],['Universidad de Málaga',t.eduErasmus]];
+ return `<section class="page-hero"><div class="wrap"><span class="eyebrow">ELISA SIMONCINI / ${t.aboutNav.toUpperCase()}</span><h1 class="display-heading">${t.aboutTitle}<span class="period">.</span></h1><p class="page-intro">${t.aboutIntro}</p></div></section><hr class="rule">`+
+ section(t.bioLabel,t.bioTitle,`<p class="body-lead">${t.bioLead}</p><p class="body-copy">${t.bioBody}</p>`)+
+ section(t.beyondLabel,t.beyondTitle,`<p class="body-lead">${t.beyondLead}</p>`,'teaser')+
+ section(t.expLabel,t.expTitle,`<div class="content-stack">${exp.map(([name,date,desc])=>`<article class="text-card"><small>${date}</small><h3>${name}</h3><p>${desc}</p></article>`).join('')}</div>`)+
+ section(t.eduLabel,t.eduTitle,`<div class="content-stack">${education.map(([name,desc])=>`<article class="text-card"><h3>${name}</h3><p>${desc}</p></article>`).join('')}</div>`,'teaser')+
+ section(t.skillsLabel,t.skillsTitle,`<h3 class="body-lead">${t.skillsSub}</h3><ul class="skill-tags">${t.skillTags.map(s=>`<li>${s}</li>`).join('')}</ul><div class="text-card" style="margin-top:55px"><h3>${t.certTitle}</h3><div class="cert-list">${t.certs.map(name=>`<article class="cert"><strong>${name}</strong><span>Learnn · 2025</span></article>`).join('')}</div><p class="body-copy">${t.certNote}</p></div>`)+
+ section(t.cvLabel,t.cvTitle,`<p class="body-lead">${t.cvIntro}</p><div class="cv-links"><a class="button ghost" href="cv/Elisa_Simoncini_CV_IT.pdf" download>${t.cvButton} · IT ↓</a><a class="button ghost" href="cv/Elisa_Simoncini_CV_EN.pdf" download>${t.cvButton} · EN ↓</a><a class="button ghost" href="cv/Elisa_Simoncini_CV_ES.pdf" download>${t.cvButton} · ES ↓</a></div>`,'teaser');
+}
+function renderProjects(t){
+ let filters=t.filters.map((x,i)=>`<button type="button" class="filter-btn" data-filter="${['all','pm','marketing','digital','events'][i]}" aria-pressed="${selectedCategory===['all','pm','marketing','digital','events'][i]}">${x}</button>`).join('');
+ const show = selectedCategory==='all'||selectedCategory==='pm';
+ return `<section class="page-hero"><div class="wrap"><span class="eyebrow">ELISA SIMONCINI / PORTFOLIO</span><h1 class="display-heading">${t.projectTitle}<span class="period">.</span></h1><p class="page-intro">${t.projectIntro}</p></div></section><hr class="rule"><section class="section"><div class="wrap"><div class="filter-row" role="group" aria-label="Filter projects">${filters}</div><div class="project-grid" id="filtered-projects">${show?`<article class="project-card"><a href="#/toolkit" aria-label="${t.toolkitMore}: ${t.toolkitTitle}" style="display:block;text-decoration:none"><div class="project-art"><span class="project-number">01</span></div><h3>${t.toolkitTitle} ↗</h3></a><p>${t.toolkitDesc}</p><div class="tags"><span class="tag">${t.toolkitCategory}</span><span class="tag">${t.toolkitTag}</span></div></article>`:`<p class="empty-note">${t.empty}</p>`}</div></div></section>`;
+}
+function renderToolkit(t){return `<section class="page-hero"><div class="wrap"><a class="inline-link back-link" href="#/projects">${t.backProjects}</a><div class="eyebrow">PROJECT MANAGEMENT / INDUSTRY</div><h1 class="display-heading">${t.toolkitTitle}<span class="period">.</span></h1><p class="page-intro">${t.toolkitDesc}</p></div></section><hr class="rule"><section class="section"><div class="wrap"><div class="project-art" style="max-width:960px"><span class="project-number">01</span></div><div class="project-detail"><p class="body-lead">${t.toolkitDetailIntro}</p><h3>${t.toolkitDetailRole}</h3><p class="body-copy">${t.toolkitDetailRoleText}</p><p class="body-copy"><em>${t.toolkitDetailNote}</em></p><span class="tag">${t.noPdf}</span></div></div></section>`;}
+function render(){
+ const t=translations();const route=path();
+ main.innerHTML=route==='home'?renderHome(t):route==='about'?renderAbout(t):route==='projects'?renderProjects(t):renderToolkit(t);
+ document.documentElement.lang=language;
+ document.title=`Elisa Simoncini | ${route==='home'?'Portfolio':route==='toolkit'?t.toolkitTitle:route==='about'?t.aboutTitle:t.projectTitle}`;
+ document.getElementById('nav-about').textContent=t.aboutNav;
+ document.getElementById('nav-projects').textContent=t.projectsNav;
+ document.getElementById('footer-label').textContent=t.footerLabel;
+ document.getElementById('footer-title').innerHTML=t.footerTitle+'<span class="period">.</span>';
+ document.querySelector('.footer-meta>span:nth-child(2)').textContent=t.place;
+ document.querySelectorAll('.site-navigation a[data-route]').forEach(a=>{const active=a.dataset.route===route;a.classList.toggle('is-active',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+ document.querySelectorAll('.lang-btn').forEach(b=>{const active=b.dataset.lang===language;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});
+ document.querySelectorAll('.filter-btn').forEach(b=>b.addEventListener('click',()=>{selectedCategory=b.dataset.filter;render();}));
+ requestAnimationFrame(updateScrollAnimation);
+}
+function updateScrollAnimation(){const art=document.querySelector('.hero-art');if(!art)return;const max=Math.max(1,document.documentElement.scrollHeight-innerHeight);const val=Math.min(1,scrollY/Math.min(max,700));art.style.setProperty('--swap',val.toFixed(3));}
+window.addEventListener('scroll',()=>requestAnimationFrame(updateScrollAnimation),{passive:true});
+window.addEventListener('hashchange',()=>{selectedCategory='all';render();scrollTo({top:0,behavior:'instant'});document.getElementById('mobile-toggle').setAttribute('aria-expanded','false');document.getElementById('site-navigation').classList.remove('is-open')});
+document.querySelectorAll('.lang-btn').forEach(btn=>btn.addEventListener('click',()=>{language=btn.dataset.lang;localStorage.setItem('elisa-language',language);render()}));
+document.getElementById('mobile-toggle').addEventListener('click',e=>{const toggle=e.currentTarget;const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));document.getElementById('site-navigation').classList.toggle('is-open',open)});
+const monogram=document.getElementById('footer-monogram');monogram.addEventListener('click',()=>{const active=monogram.classList.toggle('is-expanded');monogram.setAttribute('aria-pressed',String(active))});
+document.addEventListener('click',e=>{if(e.button!==0||window.matchMedia('(prefers-reduced-motion: reduce)').matches||window.matchMedia('(pointer: coarse)').matches)return;const dot=document.createElement('span');dot.className='click-dot';dot.style.left=e.clientX+'px';dot.style.top=e.clientY+'px';document.getElementById('click-layer').appendChild(dot);dot.addEventListener('animationend',()=>dot.remove(),{once:true})});
+document.getElementById('year').textContent=new Date().getFullYear();
+render();
