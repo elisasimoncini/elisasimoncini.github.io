@@ -12,7 +12,7 @@ const content = {
     eduLabel:'04 / FORMAZIONE',eduTitle:'Studio e prospettive.',eduMaster:'Laurea magistrale in Economia e Management Internazionale · Marketing e Digital Export · 110/110 e lode · 2025',eduBachelor:'Laurea triennale in Scienze Politiche e Relazioni Internazionali · 104/110 · 2023',eduErasmus:'Erasmus+ · studio e tirocinio a Málaga, Spagna · 2025',
     skillsLabel:'05 / COMPETENZE',skillsTitle:'Competenze e certificazioni.',skillsSub:'Le competenze che porto nei progetti',certTitle:'Certificazioni Learnn · 2025',certNote:'Gli attestati PDF potranno essere collegati qui quando li caricheremo.',
     cvLabel:'06 / CURRICULUM',cvTitle:'Il mio CV, nella tua lingua.',cvIntro:'Scarica la versione che preferisci.',cvButton:'SCARICA CV',
-    projectTitle:'Esplora i progetti',projectIntro:'Una selezione di lavori e strumenti raccontati dal punto di vista del mio contributo. Filtra per ambito e scegli cosa approfondire.',
+    projectTitle:'Esplora i progetti',projectIntro:'Progetti, strategie e strumenti che raccontano il mio contributo e il mio modo di lavorare.',
     filters:['Tutti','Project Management','Marketing Strategy','Digital & Communication','Events'],
     toolkitTitle:'Strumenti per organizzare il lavoro',toolkitDesc:'Strumenti di pianificazione e monitoraggio realizzati con Google Sheets e Looker Studio per rendere più chiari i flussi operativi.',toolkitCategory:'PROJECT MANAGEMENT',toolkitMore:'SCOPRI IL PROGETTO',toolkitTag:'PROCESSI · REPORTING',
     toolkitDetailIntro:'Nel mio lavoro in INDUSTRY ho contribuito a sviluppare strumenti interni basati su Google Sheets e Looker Studio, pensati per supportare pianificazione, monitoraggio e coordinamento operativo.',toolkitDetailRole:'Il mio contributo',toolkitDetailRoleText:'Progettazione e sviluppo di strumenti di project management per semplificare la lettura delle informazioni e il lavoro dei team.',toolkitDetailNote:'Le schermate e i materiali operativi non sono pubblicati per tutelare informazioni aziendali.',backProjects:'← TORNA AI PROGETTI',
@@ -32,7 +32,7 @@ const content = {
     eduLabel:'04 / EDUCATION',eduTitle:'Learning and perspective.',eduMaster:'MSc in International Economics and Management · Marketing and Digital Export · 110/110 with honours · 2025',eduBachelor:'BA in Political Science and International Relations · 104/110 · 2023',eduErasmus:'Erasmus+ · study and internship in Málaga, Spain · 2025',
     skillsLabel:'05 / SKILLS',skillsTitle:'Skills & certifications.',skillsSub:'What I bring to a project',certTitle:'Learnn certifications · 2025',certNote:'Certificate PDFs can be linked here once uploaded.',
     cvLabel:'06 / RESUME',cvTitle:'My CV, in your language.',cvIntro:'Choose the version that works best for you.',cvButton:'DOWNLOAD CV',
-    projectTitle:'Explore projects',projectIntro:'A selection of work and tools viewed through the lens of my contribution. Filter by field and choose what to explore.',filters:['All','Project Management','Marketing Strategy','Digital & Communication','Events'],
+    projectTitle:'Explore projects',projectIntro:'Projects, strategies and tools that reflect my contribution and my approach to work.',filters:['All','Project Management','Marketing Strategy','Digital & Communication','Events'],
     toolkitTitle:'Tools for better workflows',toolkitDesc:'Planning and monitoring tools built with Google Sheets and Looker Studio to make operational workflows clearer.',toolkitCategory:'PROJECT MANAGEMENT',toolkitMore:'VIEW PROJECT',toolkitTag:'WORKFLOWS · REPORTING',
     toolkitDetailIntro:'At INDUSTRY I contributed to internal tools built with Google Sheets and Looker Studio, designed to support planning, monitoring and day-to-day coordination.',toolkitDetailRole:'My contribution',toolkitDetailRoleText:'Designing and developing project management tools to simplify information-sharing and teamwork.',toolkitDetailNote:'Screenshots and operational materials are not shared to protect company information.',backProjects:'← BACK TO PROJECTS',
     empty:'No projects have been published in this category yet. New presentations will appear here as they become available.',noPdf:'PDF presentation coming soon',
@@ -51,7 +51,7 @@ const content = {
     eduLabel:'04 / FORMACIÓN',eduTitle:'Aprendizaje y perspectivas.',eduMaster:'Máster en Economía y Gestión Internacional · Marketing y Exportación Digital · 110/110 cum laude · 2025',eduBachelor:'Grado en Ciencias Políticas y Relaciones Internacionales · 104/110 · 2023',eduErasmus:'Erasmus+ · estudios y prácticas en Málaga, España · 2025',
     skillsLabel:'05 / COMPETENCIAS',skillsTitle:'Competencias y certificaciones.',skillsSub:'Lo que aporto a cada proyecto',certTitle:'Certificaciones Learnn · 2025',certNote:'Podremos enlazar aquí los certificados PDF cuando se suban.',
     cvLabel:'06 / CURRÍCULUM',cvTitle:'Mi CV, en tu idioma.',cvIntro:'Descarga la versión que prefieras.',cvButton:'DESCARGAR CV',
-    projectTitle:'Explorar proyectos',projectIntro:'Una selección de trabajos y herramientas desde la perspectiva de mi contribución. Filtra por área y descubre lo que más te interesa.',filters:['Todos','Project Management','Marketing Strategy','Digital & Communication','Eventos'],
+    projectTitle:'Explorar proyectos',projectIntro:'Proyectos, estrategias y herramientas que muestran mi contribución y mi forma de trabajar.',filters:['Todos','Project Management','Marketing Strategy','Digital & Communication','Eventos'],
     toolkitTitle:'Herramientas para organizar el trabajo',toolkitDesc:'Herramientas de planificación y seguimiento desarrolladas con Google Sheets y Looker Studio para mejorar los flujos operativos.',toolkitCategory:'PROJECT MANAGEMENT',toolkitMore:'VER PROYECTO',toolkitTag:'PROCESOS · INFORMES',
     toolkitDetailIntro:'En INDUSTRY participé en el desarrollo de herramientas internas basadas en Google Sheets y Looker Studio para facilitar la planificación, el seguimiento y la coordinación diaria.',toolkitDetailRole:'Mi contribución',toolkitDetailRoleText:'Diseño y desarrollo de herramientas de gestión de proyectos para facilitar el acceso a la información y el trabajo en equipo.',toolkitDetailNote:'No se comparten capturas ni materiales operativos para proteger la información de la empresa.',backProjects:'← VOLVER A PROYECTOS',
     empty:'Todavía no hay proyectos publicados en esta categoría. Añadiremos nuevas presentaciones cuando estén listas.',noPdf:'Presentación PDF próximamente',
@@ -63,7 +63,7 @@ const content = {
 const extras = {
   it: {
     all:'Tutti', view:'Visualizza PDF ↗', download:'Scarica PDF ↓', openCase:'Apri il progetto',
-    beyondTitle:'Oltre il ruolo.', beyondIntro:'Quattro modi di guardare il mondo che porto con me anche nel lavoro. Scorri sul cerchio o clicca per scoprire cosa significano per me.',
+    beyondTitle:'Oltre il ruolo.', beyondIntro:'Quattro valori che mi accompagnano nella vita e nel lavoro.',
     flipHelp:'Scorri sul cerchio o selezionalo per girarlo', values:[
       ['Curiosità','Mi piace fare domande, esplorare nuove idee e osservare le cose da prospettive diverse.'],
       ['Empatia','Ascolto prima di tutto: capire le persone è il primo passo per lavorare bene insieme.'],
@@ -92,11 +92,11 @@ const extras = {
     photoCredit:'Foto dell’edificio: Gvillalobos / Wikimedia Commons, CC BY-SA 4.0 (ritaglio).',
     noImage:'Universidad de Málaga · Campus El Ejido',
     valuesRegion:'Quattro valori personali interattivi',
-    experienceHint:'La timeline si illumina man mano che scorri la pagina.'
+    experienceHint:''
   },
   en: {
     all:'All', view:'View PDF ↗', download:'Download PDF ↓', openCase:'Open project',
-    beyondTitle:'Beyond the job title.', beyondIntro:'Four qualities that shape how I see the world and how I work. Scroll over a circle or click to discover what each means to me.',
+    beyondTitle:'Beyond the job title.', beyondIntro:'Four values that shape who I am and how I work.',
     flipHelp:'Scroll over or select the circle to turn it', values:[
       ['Curiosity','I like asking questions, exploring new ideas and looking at things from different perspectives.'],
       ['Empathy','I listen first: understanding people is the starting point for working well together.'],
@@ -125,11 +125,11 @@ const extras = {
     photoCredit:'Building photo: Gvillalobos / Wikimedia Commons, CC BY-SA 4.0 (cropped).',
     noImage:'University of Málaga · El Ejido campus',
     valuesRegion:'Four interactive personal values',
-    experienceHint:'The timeline comes to life as you scroll.'
+    experienceHint:''
   },
   es: {
     all:'Todos',view:'Ver PDF ↗',download:'Descargar PDF ↓',openCase:'Ver proyecto',
-    beyondTitle:'Más allá del puesto.',beyondIntro:'Cuatro cualidades que definen mi manera de ver el mundo y de trabajar. Desplázate sobre un círculo o haz clic para descubrir qué significa cada una para mí.',
+    beyondTitle:'Más allá del puesto.',beyondIntro:'Cuatro valores que me acompañan en la vida y en el trabajo.',
     flipHelp:'Desplázate sobre el círculo o selecciónalo para girarlo',values:[
       ['Curiosidad','Me gusta hacer preguntas, explorar ideas y observar las cosas desde perspectivas distintas.'],
       ['Empatía','Primero escucho: comprender a las personas es la base para trabajar bien en equipo.'],
@@ -158,7 +158,7 @@ const extras = {
     photoCredit:'Foto del edificio: Gvillalobos / Wikimedia Commons, CC BY-SA 4.0 (recorte).',
     noImage:'Universidad de Málaga · Campus de El Ejido',
     valuesRegion:'Cuatro valores personales interactivos',
-    experienceHint:'La línea de tiempo se ilumina mientras te desplazas.'
+    experienceHint:''
   }
 };
 
@@ -213,7 +213,7 @@ function renderValues(x){
  </button>`).join('')}</div>`;
 }
 function renderTimeline(x){
- return `<p class="micro-hint">${esc(x.experienceHint)}</p><div class="timeline" id="experience-timeline"><div class="timeline-progress" aria-hidden="true"></div>
+ return `<div class="timeline" id="experience-timeline"><div class="timeline-progress" aria-hidden="true"></div>
  ${x.timeline.map(([when,where,job,desc])=>`<article class="timeline-item"><div class="timeline-marker" aria-hidden="true"></div><div class="timeline-info"><span class="timeline-when">${esc(when)}</span><h3>${esc(where)}</h3><strong>${esc(job)}</strong><p>${esc(desc)}</p></div></article>`).join('')}</div>`;
 }
 function renderEducation(x){
@@ -248,7 +248,14 @@ function renderCertificates(t){
  return `<section class="page-hero certificates-page-hero"><div class="wrap"><span class="eyebrow">ELISA SIMONCINI / ${esc(t.aboutNav.toUpperCase())}</span><a class="inline-link back-link" href="#/about">${esc(x.certPageBack)}</a><h1 class="display-heading">${esc(x.certPageTitle)}<span class="period">.</span></h1><p class="page-intro">${esc(x.certPageIntro)}</p></div></section><hr class="rule"><section class="section certificates-page"><div class="wrap"><div class="cert-list">${all.length?all.map(cert=>certificateCard(cert,x)).join(''):`<p class="empty-note">${esc(x.certEmpty)}</p>`}</div></div></section>`;
 }
 function renderCvs(x,t){
- const buttons=['it','en','es'].filter(l=>cvData[l]).map(l=>docButton(cvData[l],t.cvButton+' · '+l.toUpperCase()+' ↓')).join('');
+ const buttons=['it','en','es'].filter(l=>cvData[l]).map(l=>{
+  const label=t.cvButton+' · '+l.toUpperCase()+' ↓';
+  const href=fileHref(cvData[l]);
+  if(l==='it' && href){ // Verified Italian PDF: don't hide its link if a HEAD check fails.
+    return `<a class="button ghost" href="${href}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`;
+  }
+  return docButton(cvData[l],label);
+ }).join('');
  return `<p class="body-lead">${esc(t.cvIntro)}</p><div class="cv-links">${buttons}</div>${buttons?'':`<p class="body-copy">${esc(x.cvUnavailable)}</p>`}`;
 }
 function renderAbout(t){
@@ -386,7 +393,7 @@ document.addEventListener('click',e=>{
 document.getElementById('year').textContent=new Date().getFullYear();
 async function loadData(){
  const read=async(path,fallback)=>{
-  try{const r=await fetch(path+'?v=4',{cache:'no-store'});if(!r.ok)throw new Error(r.status);return await r.json();}
+  try{const r=await fetch(path+'?v=5',{cache:'no-store'});if(!r.ok)throw new Error(r.status);return await r.json();}
   catch(err){console.warn('Cannot load',path,err);return fallback;}
  };
  const [projects,certificates,cv]=await Promise.all([
