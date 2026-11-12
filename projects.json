@@ -1,0 +1,22 @@
+{
+  "categories": [
+    {"id":"processi", "name":{"it":"Processi e strumenti", "en":"Processes & tools", "es":"Procesos y herramientas"}},
+    {"id":"strategia", "name":{"it":"Brand e strategia", "en":"Brand & strategy", "es":"Marca y estrategia"}},
+    {"id":"comunicazione", "name":{"it":"Marketing e comunicazione", "en":"Marketing & communication", "es":"Marketing y comunicación"}},
+    {"id":"eventi", "name":{"it":"Eventi ed esperienze", "en":"Events & experiences", "es":"Eventos y experiencias"}}
+  ],
+  "projects": [
+    {
+      "id":"workflow-tools",
+      "visible":true,
+      "year":"2025–2026",
+      "categories":["processi"],
+      "title":{"it":"Strumenti per lavorare meglio", "en":"Tools for better workflows", "es":"Herramientas para trabajar mejor"},
+      "summary":{"it":"Pianificazione e monitoraggio dei progetti attraverso Google Sheets e Looker Studio.", "en":"Project planning and monitoring with Google Sheets and Looker Studio.", "es":"Planificación y seguimiento de proyectos con Google Sheets y Looker Studio."},
+      "description":{"it":"In INDUSTRY ho contribuito a sviluppare strumenti interni per migliorare pianificazione, monitoraggio e coordinamento dei progetti. I materiali operativi non vengono pubblicati per tutelare le informazioni aziendali.", "en":"At INDUSTRY, I contributed to internal tools that improve project planning, monitoring and coordination. Operational materials are not published to protect company information.", "es":"En INDUSTRY participé en el desarrollo de herramientas internas para mejorar la planificación, el seguimiento y la coordinación. No se publican materiales operativos para proteger la información de la empresa."},
+      "role":{"it":"Project Management · processi e reporting", "en":"Project management · workflows and reporting", "es":"Gestión de proyectos · procesos e informes"},
+      "image":"",
+      "pdf":""
+    }
+  ]
+}
