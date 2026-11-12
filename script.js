@@ -82,8 +82,8 @@ const extras = {
       ['Universidad de Málaga','Erasmus+ · Studio universitario e tirocinio','2025 · Málaga, Spagna'],
       ['UNINT · Università degli Studi Internazionali di Roma','Laurea magistrale in Economia e Management Internazionale · Marketing e Digital Export','2025 · 110/110 e lode']
     ],
-    skillLead:'Come lavoro e cosa so fare.', softTitle:'Competenze trasversali', hardTitle:'Competenze professionali',
-    soft:['Coordinamento collaborativo','Comunicazione e ascolto','Gestione delle relazioni','Problem solving','Gestione delle priorità','Adattabilità e autonomia'],
+    skillLead:'Il mio lavoro prende forma dall’incontro tra persone, metodo e idee.', softTitle:'Il mio modo di lavorare', hardTitle:'Competenze professionali',
+    soft:[['Ascoltare e connettere','Ascolto punti di vista diversi, facilito il confronto e aiuto il team a condividere obiettivi e priorità.'],['Dare ordine alla complessità','Trasformo richieste e obiettivi in attività, responsabilità e scadenze chiare.'],['Affrontare gli imprevisti','Quando cambiano le condizioni, riorganizzo il lavoro e cerco soluzioni pratiche senza perdere di vista il risultato.']],
     hard:[['Project Management','Pianificazione, team, budget, scadenze e flussi di lavoro.'],['Marketing & Communication','Strategia, branding, social, advertising, web ed e-commerce.'],['Analytics & Reporting','Google Sheets, Looker Studio e monitoraggio delle attività.']],
     certificateLabel:'Attestati e certificazioni', certView:'Visualizza attestato ↗', certAll:'Tutte', certPageTitle:'Tutti gli attestati', certPageIntro:'Corsi e certificazioni che accompagnano il mio percorso di formazione continua.', certPageBack:'← Torna a Chi sono', certEmpty:'Non ho ancora pubblicato attestati.',
     projectRole:'Il mio contributo', projectAbout:'Il progetto', projectBack:'← Torna ai progetti', pdfNote:'Materiali non pubblici o non ancora disponibili.',
@@ -115,8 +115,8 @@ const extras = {
       ['University of Málaga','Erasmus+ · University studies and internship','2025 · Málaga, Spain'],
       ['UNINT · University of International Studies of Rome','MSc in International Economics and Management · Marketing and Digital Export','2025 · 110/110 with honours']
     ],
-    skillLead:'How I work and what I bring.', softTitle:'People & collaboration', hardTitle:'Professional expertise',
-    soft:['Collaborative coordination','Communication & listening','Stakeholder relationships','Problem solving','Prioritisation','Adaptability & autonomy'],
+    skillLead:'My work takes shape where people, structure and ideas meet.', softTitle:'How I work', hardTitle:'Professional expertise',
+    soft:[['Listen and connect','I listen to different perspectives, facilitate dialogue and help teams align around goals and priorities.'],['Bring clarity to complexity','I turn requests and objectives into clear actions, responsibilities and deadlines.'],['Navigate the unexpected','When circumstances change, I reorganise the work and find practical ways forward without losing sight of the goal.']],
     hard:[['Project Management','Planning, teams, budgets, deadlines and workflows.'],['Marketing & Communication','Strategy, brand, social, advertising, websites and e-commerce.'],['Analytics & Reporting','Google Sheets, Looker Studio and performance tracking.']],
     certificateLabel:'Certificates & credentials', certView:'View certificate ↗', certAll:'All', certPageTitle:'All certificates', certPageIntro:'Training and credentials that are part of my ongoing professional development.', certPageBack:'← Back to About', certEmpty:'No certificates published yet.',
     projectRole:'My contribution',projectAbout:'About this project',projectBack:'← Back to projects',pdfNote:'Materials are not public or not yet available.',
@@ -148,8 +148,8 @@ const extras = {
       ['Universidad de Málaga','Erasmus+ · Estudios universitarios y prácticas','2025 · Málaga, España'],
       ['UNINT · Universidad de Estudios Internacionales de Roma','Máster en Economía y Gestión Internacional · Marketing y Exportación Digital','2025 · 110/110 con matrícula de honor']
     ],
-    skillLead:'Cómo trabajo y qué puedo aportar.',softTitle:'Competencias interpersonales',hardTitle:'Competencias profesionales',
-    soft:['Coordinación colaborativa','Comunicación y escucha','Relaciones con stakeholders','Resolución de problemas','Gestión de prioridades','Adaptabilidad y autonomía'],
+    skillLead:'Mi trabajo surge del encuentro entre personas, organización e ideas.',softTitle:'Cómo trabajo',hardTitle:'Competencias profesionales',
+    soft:[['Escuchar y conectar','Escucho distintas perspectivas, facilito el diálogo y ayudo a alinear al equipo en torno a objetivos y prioridades.'],['Dar claridad a lo complejo','Convierto las necesidades y los objetivos en acciones, responsabilidades y plazos claros.'],['Responder a los imprevistos','Cuando cambian las circunstancias, reorganizo el trabajo y busco soluciones prácticas sin perder de vista el resultado.']],
     hard:[['Gestión de proyectos','Planificación, equipos, presupuestos, plazos y procesos.'],['Marketing y comunicación','Estrategia, marca, redes sociales, publicidad, web y e-commerce.'],['Análisis e informes','Google Sheets, Looker Studio y seguimiento de resultados.']],
     certificateLabel:'Certificados y acreditaciones',certView:'Ver certificado ↗',certAll:'Todos',certPageTitle:'Todos los certificados',certPageIntro:'Cursos y certificados que forman parte de mi formación continua.',certPageBack:'← Volver a Sobre mí',certEmpty:'Todavía no he publicado certificados.',
     projectRole:'Mi contribución',projectAbout:'Sobre el proyecto',projectBack:'← Volver a proyectos',pdfNote:'Materiales no públicos o todavía no disponibles.',
@@ -198,7 +198,8 @@ function path(){
  return {route:'home'};
 }
 function section(label,title,inner,extraClass=''){
- return `<section class="section ${extraClass}"><div class="wrap section-grid"><div class="label-index">${esc(label)}</div><div><h2 class="display-heading">${esc(title)}</h2>${inner}</div></div></section>`;
+ // A flowing editorial composition: headings are content, not numbered layout instructions.
+ return `<section class="section ${extraClass}"><div class="wrap"><div class="section-content"><h2 class="display-heading">${esc(title)}</h2>${inner}</div></div></section>`;
 }
 function renderHome(t){
  return `<section class="hero"><div class="wrap hero-grid"><div class="hero-content"><div class="eyebrow hero-kicker">${esc(t.kicker)}</div><h1 class="hero-title"><span class="work">Work to</span><em class="impact">impact.</em></h1><p class="hero-sub">${esc(t.heroLine)}</p><div class="hero-button-row"><a class="button primary" href="#/projects">${esc(t.exploreButton)} <span aria-hidden="true">↗</span></a></div></div><div class="hero-art" aria-hidden="true"><span class="circle pink"></span><span class="circle blue"></span><span class="art-line"></span></div></div><div class="hero-scrolldown">${esc(t.scroll)}</div></section><hr class="rule">`+
@@ -246,12 +247,12 @@ function certificateCard(cert,x){
 }
 function renderSkills(x,t){
  const recent=sortedCertificates().slice(0,3);
- return `<p class="body-lead">${esc(x.skillLead)}</p><div class="skills-columns"><div><h3 class="skill-heading">${esc(x.softTitle)}</h3><ul class="skill-tags">${x.soft.map(s=>`<li>${esc(s)}</li>`).join('')}</ul></div><div><h3 class="skill-heading">${esc(x.hardTitle)}</h3><div class="hard-skill-list">${x.hard.map(([title,desc])=>`<div class="hard-skill"><strong>${esc(title)}</strong><p>${esc(desc)}</p></div>`).join('')}</div></div></div>
+ return `<p class="body-lead">${esc(x.skillLead)}</p><div class="skills-columns"><div><h3 class="skill-heading">${esc(x.softTitle)}</h3><div class="people-skills">${x.soft.map(([title,desc])=>`<article class="people-skill"><h4>${esc(title)}</h4><p>${esc(desc)}</p></article>`).join('')}</div></div><div><h3 class="skill-heading">${esc(x.hardTitle)}</h3><div class="hard-skill-list">${x.hard.map(([title,desc])=>`<div class="hard-skill"><strong>${esc(title)}</strong><p>${esc(desc)}</p></div>`).join('')}</div></div></div>
  <div class="certificates-section"><div class="cert-heading-row"><h3 class="skill-heading">${esc(x.certificateLabel)}</h3><a class="cert-all-link" href="#/certificates" aria-label="${esc(x.certPageTitle)}">${esc(x.certAll)} <span aria-hidden="true">↗</span></a></div><div class="cert-list">${recent.length?recent.map(cert=>certificateCard(cert,x)).join(''):`<p class="empty-note">${esc(x.certEmpty)}</p>`}</div></div>`;
 }
 function renderCertificates(t){
  const x=extra();const all=sortedCertificates();
- return `<section class="page-hero certificates-page-hero"><div class="wrap"><span class="eyebrow">ELISA SIMONCINI / ${esc(t.aboutNav.toUpperCase())}</span><a class="inline-link back-link" href="#/about">${esc(x.certPageBack)}</a><h1 class="display-heading">${esc(x.certPageTitle)}<span class="period">.</span></h1><p class="page-intro">${esc(x.certPageIntro)}</p></div></section><hr class="rule"><section class="section certificates-page"><div class="wrap"><div class="cert-list">${all.length?all.map(cert=>certificateCard(cert,x)).join(''):`<p class="empty-note">${esc(x.certEmpty)}</p>`}</div></div></section>`;
+ return `<section class="page-hero certificates-page-hero"><div class="wrap"><a class="inline-link back-link" href="#/about">${esc(x.certPageBack)}</a><h1 class="display-heading">${esc(x.certPageTitle)}<span class="period">.</span></h1><p class="page-intro">${esc(x.certPageIntro)}</p></div></section><hr class="rule"><section class="section certificates-page"><div class="wrap"><div class="cert-list">${all.length?all.map(cert=>certificateCard(cert,x)).join(''):`<p class="empty-note">${esc(x.certEmpty)}</p>`}</div></div></section>`;
 }
 function renderCvs(x,t){
  const buttons=['it','en','es'].filter(l=>cvData[l]).map(l=>{
@@ -266,7 +267,7 @@ function renderCvs(x,t){
 }
 function renderAbout(t){
  const x=extra();
- return `<section class="page-hero"><div class="wrap"><span class="eyebrow">ELISA SIMONCINI / ${esc(t.aboutNav.toUpperCase())}</span><h1 class="display-heading">${esc(t.aboutTitle)}<span class="period">.</span></h1><p class="page-intro">${esc(t.aboutIntro)}</p></div></section><hr class="rule">`+
+ return `<section class="page-hero"><div class="wrap"><h1 class="display-heading">${esc(t.aboutTitle)}<span class="period">.</span></h1><p class="page-intro">${esc(t.aboutIntro)}</p></div></section><hr class="rule">`+
  section(t.bioLabel,t.bioTitle,`<p class="body-lead">${esc(t.bioLead)}</p><p class="body-copy">${esc(t.bioBody)}</p>`)+
  section(t.beyondLabel,x.beyondTitle,renderValues(x),'values-section teaser')+
  section(t.expLabel,t.expTitle,renderTimeline(x),'experience-section')+
@@ -291,7 +292,7 @@ function renderProjects(t){
  if(!choices.some(c=>c.id===selectedCategory))selectedCategory='all';
  const filters=choices.map(c=>`<button type="button" class="filter-btn" data-filter="${esc(c.id)}" aria-pressed="${selectedCategory===c.id}">${esc(c.label)}</button>`).join('');
  const list=visibleProjects().filter(p=>selectedCategory==='all'||(p.categories||[]).includes(selectedCategory));
- return `<section class="page-hero"><div class="wrap"><span class="eyebrow">ELISA SIMONCINI / PORTFOLIO</span><h1 class="display-heading">${esc(t.projectTitle)}<span class="period">.</span></h1><p class="page-intro">${esc(t.projectIntro)}</p></div></section><hr class="rule"><section class="section projects-section"><div class="wrap"><div class="filter-row" role="group" aria-label="${esc(t.projectTitle)}">${filters}</div><div class="project-grid" id="filtered-projects" aria-live="polite">${list.length?list.map((p,i)=>projectCard(p,i,x)).join(''):`<p class="empty-note">${esc(x.projectEmpty)}</p>`}</div></div></section>`;
+ return `<section class="page-hero"><div class="wrap"><h1 class="display-heading">${esc(t.projectTitle)}<span class="period">.</span></h1><p class="page-intro">${esc(t.projectIntro)}</p></div></section><hr class="rule"><section class="section projects-section"><div class="wrap"><div class="filter-row" role="group" aria-label="${esc(t.projectTitle)}">${filters}</div><div class="project-grid" id="filtered-projects" aria-live="polite">${list.length?list.map((p,i)=>projectCard(p,i,x)).join(''):`<p class="empty-note">${esc(x.projectEmpty)}</p>`}</div></div></section>`;
 }
 function renderProjectDetail(t,slug){
  const x=extra();const p=visibleProjects().find(p=>safeId(p.id)===slug);if(!p)return renderProjects(t);
