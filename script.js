@@ -64,7 +64,7 @@ const extras = {
   it: {
     all:'Tutti', view:'Visualizza PDF ↗', download:'Scarica PDF ↓', openCase:'Apri il progetto',
     beyondTitle:'Oltre il ruolo.', beyondIntro:'Quattro valori che mi accompagnano nella vita e nel lavoro.',
-    flipHelp:'Scorri sul cerchio o selezionalo per girarlo', values:[
+    flipHelp:'Seleziona per leggere la descrizione', values:[
       ['Curiosità','Mi piace fare domande, esplorare nuove idee e osservare le cose da prospettive diverse.'],
       ['Empatia','Ascolto prima di tutto: capire le persone è il primo passo per lavorare bene insieme.'],
       ['Creatività','Cerco connessioni inattese e modi nuovi per trasformare un’intuizione in qualcosa di concreto.'],
@@ -97,7 +97,7 @@ const extras = {
   en: {
     all:'All', view:'View PDF ↗', download:'Download PDF ↓', openCase:'Open project',
     beyondTitle:'Beyond the job title.', beyondIntro:'Four values that shape who I am and how I work.',
-    flipHelp:'Scroll over or select the circle to turn it', values:[
+    flipHelp:'Select to read the description', values:[
       ['Curiosity','I like asking questions, exploring new ideas and looking at things from different perspectives.'],
       ['Empathy','I listen first: understanding people is the starting point for working well together.'],
       ['Creativity','I look for unexpected connections and fresh ways to turn an idea into something tangible.'],
@@ -130,7 +130,7 @@ const extras = {
   es: {
     all:'Todos',view:'Ver PDF ↗',download:'Descargar PDF ↓',openCase:'Ver proyecto',
     beyondTitle:'Más allá del puesto.',beyondIntro:'Cuatro valores que me acompañan en la vida y en el trabajo.',
-    flipHelp:'Desplázate sobre el círculo o selecciónalo para girarlo',values:[
+    flipHelp:'Selecciona para leer la descripción',values:[
       ['Curiosidad','Me gusta hacer preguntas, explorar ideas y observar las cosas desde perspectivas distintas.'],
       ['Empatía','Primero escucho: comprender a las personas es la base para trabajar bien en equipo.'],
       ['Creatividad','Busco conexiones inesperadas y formas nuevas de convertir una idea en algo concreto.'],
@@ -182,6 +182,21 @@ const translations=()=>content[language];
 const extra=()=>extras[language];
 const localLabel=(item)=>item?.[language] || item?.it || '';
 const esc=(s)=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+// Minimal stroke-based SVGs avoid emoji glyphs on iOS/Android and stay consistent with the visual identity.
+const iconSvg = (direction='up-right') => {
+ const paths={
+  'up-right':'M5 19 19 5M9 5h10v10',
+  'left':'M19 12H5m7-7-7 7 7 7',
+  'down':'M12 4v16m-7-7 7 7 7-7'
+ };
+ const key=Object.prototype.hasOwnProperty.call(paths,direction)?direction:'up-right';
+ return `<svg class="ui-arrow ui-arrow--${key}" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="${paths[key]}" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+};
+const cleanArrowLabel=(s)=>String(s??'').replace(/[↗←→↓]/g,'').trim();
+const linkLabel=(label,direction='up-right',prefix=false)=> prefix
+ ? `${iconSvg(direction)}${esc(cleanArrowLabel(label))}`
+ : `${esc(cleanArrowLabel(label))}${iconSvg(direction)}`;
+
 const safeId=s=>String(s||'').replace(/[^\w-]/g,'');
 function fileHref(path){
  if(typeof path!=='string'||!path.trim()||path.startsWith('/')||path.includes('..')||/^(https?:|data:|javascript:)/i.test(path))return '';
@@ -189,7 +204,7 @@ function fileHref(path){
 }
 function docButton(path,label,cssClass='button ghost',extraAttrs=''){
  const href=fileHref(path);
- return (href && availableDocs.get(href)===true)?`<a class="${cssClass}" href="${href}" target="_blank" rel="noopener noreferrer" ${extraAttrs}>${esc(label)}</a>`:'';
+ return (href && availableDocs.get(href)===true)?`<a class="${cssClass}" href="${href}" target="_blank" rel="noopener noreferrer" ${extraAttrs}>${linkLabel(label,'down')}</a>`:'';
 }
 function path(){
  const slug=(location.hash||'#/home').slice(2);
@@ -202,9 +217,9 @@ function section(label,title,inner,extraClass=''){
  return `<section class="section ${extraClass}"><div class="wrap"><div class="section-content"><h2 class="display-heading">${esc(title)}</h2>${inner}</div></div></section>`;
 }
 function renderHome(t){
- return `<section class="hero"><div class="wrap hero-grid"><div class="hero-content"><div class="eyebrow hero-kicker">${esc(t.kicker)}</div><h1 class="hero-title"><span class="work">Work to</span><em class="impact">impact.</em></h1><p class="hero-sub">${esc(t.heroLine)}</p><div class="hero-button-row"><a class="button primary" href="#/projects">${esc(t.exploreButton)} <span aria-hidden="true">↗</span></a></div></div><div class="hero-art" aria-hidden="true"><span class="circle pink"></span><span class="circle blue"></span><span class="art-line"></span></div></div><div class="hero-scrolldown">${esc(t.scroll)}</div></section><hr class="rule">`+
+ return `<section class="hero"><div class="wrap hero-grid"><div class="hero-content"><div class="eyebrow hero-kicker">${esc(t.kicker)}</div><h1 class="hero-title"><span class="work">Work to</span><em class="impact">impact.</em></h1><p class="hero-sub">${esc(t.heroLine)}</p><div class="hero-button-row"><a class="button primary" href="#/projects">${linkLabel(t.exploreButton)}</a></div></div><div class="hero-art" aria-hidden="true"><span class="circle pink"></span><span class="circle blue"></span><span class="art-line"></span></div></div><div class="hero-scrolldown">${esc(t.scroll)}${iconSvg('down')}</div></section><hr class="rule">`+
  section(t.whatLabel,t.whatTitle,`<p class="body-lead">${esc(t.whatLead)}</p><p class="body-copy">${esc(t.whatBody)}</p>`)+
- section(t.exploreLabel,t.exploreTitle,`<p class="body-lead">${esc(t.exploreLead)}</p><a class="button primary" href="#/projects">${esc(t.exploreButton)} <span aria-hidden="true">↗</span></a>`,'teaser');
+ section(t.exploreLabel,t.exploreTitle,`<p class="body-lead">${esc(t.exploreLead)}</p><a class="button primary" href="#/projects">${linkLabel(t.exploreButton)}</a>`,'teaser');
 }
 function renderValues(x){
  return `<div class="values-intro"><p class="body-lead">${esc(x.beyondIntro)}</p></div><div class="values-grid" aria-label="${esc(x.valuesRegion)}">${x.values.map(([name,desc],i)=>`
@@ -221,7 +236,7 @@ function renderEducation(x){
  const files=['assets/education/sapienza.jpg',UMA_LOCAL,'assets/education/unint.jpg'];
  const alts={it:['Laurea triennale davanti alla Facoltà di Scienze Politiche di Sapienza','Edificio della Facultad de Ciencias Económicas y Empresariales a Málaga','Laurea magistrale davanti all’insegna UNINT'],en:['Undergraduate graduation at Sapienza','Faculty of Economics and Business at the University of Málaga','Master’s graduation at UNINT'],es:['Graduación en Sapienza','Facultad de Ciencias Económicas y Empresariales de la Universidad de Málaga','Graduación de máster en UNINT']};
  return `<div class="education-gallery">${x.education.map(([institution,degree,year],i)=>`
- <article class="education-card"><div class="education-photo-frame"><img class="education-photo edu-${i}" src="${files[i]}" alt="${esc(alts[language][i])}" loading="lazy" decoding="async"></div><div class="education-caption"><span class="education-year">${esc(year)}</span><h3>${esc(institution)}</h3><p>${esc(degree)}</p>${i===1?`<p class="image-credit"><a href="${UMA_CREDIT}" target="_blank" rel="noopener noreferrer">${esc(x.photoCredit)} ↗</a></p>`:''}</div></article>`).join('')}</div>`;
+ <article class="education-card"><div class="education-photo-frame"><img class="education-photo edu-${i}" src="${files[i]}" alt="${esc(alts[language][i])}" loading="lazy" decoding="async"></div><div class="education-caption"><span class="education-year">${esc(year)}</span><h3>${esc(institution)}</h3><p>${esc(degree)}</p>${i===1?`<p class="image-credit"><a href="${UMA_CREDIT}" target="_blank" rel="noopener noreferrer">${linkLabel(x.photoCredit)}</a></p>`:''}</div></article>`).join('')}</div>`;
 }
 // Order credentials newest first. Optional date: YYYY-MM-DD (preferred);
 // otherwise year: YYYY. When dates match, keep the order in certificates.json.
@@ -241,25 +256,25 @@ function certificateCard(cert,x){
  // PNG/JPG/WebP credentials show a real preview. PDFs stay as a typographic tile.
  const isImage=ready && /\.(png|jpe?g|webp|avif|gif)(?:$|\?)/i.test(href);
  const cover=isImage
-  ? `<a class="cert-visual cert-visual--image" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${esc(x.certView)}: ${esc(cert.title)}"><img src="${href}" alt="" loading="lazy" decoding="async"></a>`
+  ? `<a class="cert-visual cert-visual--image" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${esc(cleanArrowLabel(x.certView))}: ${esc(cert.title)}"><img src="${href}" alt="" loading="lazy" decoding="async"></a>`
   : `<div class="cert-visual cert-visual--graphic" aria-hidden="true"><span class="cert-visual-mark">ES<span class="cert-visual-dot">.</span></span><span class="cert-visual-caption">CERTIFICATE</span></div>`;
- return `<article class="cert cert--visual">${cover}<div class="cert-information"><strong>${esc(cert.title)}</strong><span class="cert-meta">${subtitle}</span>${ready?`<a class="cert-view" href="${href}" target="_blank" rel="noopener noreferrer">${esc(x.certView)}</a>`:''}</div></article>`;
+ return `<article class="cert cert--visual">${cover}<div class="cert-information"><strong>${esc(cert.title)}</strong><span class="cert-meta">${subtitle}</span>${ready?`<a class="cert-view" href="${href}" target="_blank" rel="noopener noreferrer">${linkLabel(x.certView)}</a>`:''}</div></article>`;
 }
 function renderSkills(x,t){
  const recent=sortedCertificates().slice(0,3);
  return `<p class="body-lead">${esc(x.skillLead)}</p><div class="skills-columns"><div><h3 class="skill-heading">${esc(x.softTitle)}</h3><div class="people-skills">${x.soft.map(([title,desc])=>`<article class="people-skill"><h4>${esc(title)}</h4><p>${esc(desc)}</p></article>`).join('')}</div></div><div><h3 class="skill-heading">${esc(x.hardTitle)}</h3><div class="hard-skill-list">${x.hard.map(([title,desc])=>`<div class="hard-skill"><strong>${esc(title)}</strong><p>${esc(desc)}</p></div>`).join('')}</div></div></div>
- <div class="certificates-section"><div class="cert-heading-row"><h3 class="skill-heading">${esc(x.certificateLabel)}</h3><a class="cert-all-link" href="#/certificates" aria-label="${esc(x.certPageTitle)}">${esc(x.certAll)} <span aria-hidden="true">↗</span></a></div><div class="cert-list">${recent.length?recent.map(cert=>certificateCard(cert,x)).join(''):`<p class="empty-note">${esc(x.certEmpty)}</p>`}</div></div>`;
+ <div class="certificates-section"><div class="cert-heading-row"><h3 class="skill-heading">${esc(x.certificateLabel)}</h3><a class="cert-all-link" href="#/certificates" aria-label="${esc(x.certPageTitle)}">${linkLabel(x.certAll)}</a></div><div class="cert-list">${recent.length?recent.map(cert=>certificateCard(cert,x)).join(''):`<p class="empty-note">${esc(x.certEmpty)}</p>`}</div></div>`;
 }
 function renderCertificates(t){
  const x=extra();const all=sortedCertificates();
- return `<section class="page-hero certificates-page-hero"><div class="wrap"><a class="inline-link back-link" href="#/about">${esc(x.certPageBack)}</a><h1 class="display-heading">${esc(x.certPageTitle)}<span class="period">.</span></h1><p class="page-intro">${esc(x.certPageIntro)}</p></div></section><hr class="rule"><section class="section certificates-page"><div class="wrap"><div class="cert-list">${all.length?all.map(cert=>certificateCard(cert,x)).join(''):`<p class="empty-note">${esc(x.certEmpty)}</p>`}</div></div></section>`;
+ return `<section class="page-hero certificates-page-hero"><div class="wrap"><a class="inline-link back-link" href="#/about">${linkLabel(x.certPageBack,'left',true)}</a><h1 class="display-heading">${esc(x.certPageTitle)}<span class="period">.</span></h1><p class="page-intro">${esc(x.certPageIntro)}</p></div></section><hr class="rule"><section class="section certificates-page"><div class="wrap"><div class="cert-list">${all.length?all.map(cert=>certificateCard(cert,x)).join(''):`<p class="empty-note">${esc(x.certEmpty)}</p>`}</div></div></section>`;
 }
 function renderCvs(x,t){
  const buttons=['it','en','es'].filter(l=>cvData[l]).map(l=>{
-  const label=t.cvButton+' · '+l.toUpperCase()+' ↓';
+  const label=t.cvButton+' · '+l.toUpperCase();
   const href=fileHref(cvData[l]);
   if(l==='it' && href){ // Verified Italian PDF: don't hide its link if a HEAD check fails.
-    return `<a class="button ghost" href="${href}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`;
+    return `<a class="button ghost" href="${href}" target="_blank" rel="noopener noreferrer">${linkLabel(label,'down')}</a>`;
   }
   return docButton(cvData[l],label);
  }).join('');
@@ -285,7 +300,7 @@ function projectCard(p,i,x){
  const image=fileHref(p.image||'');
  const art=image?`<img src="${image}" alt="" loading="lazy" decoding="async">`:`<span class="project-number">${String(i+1).padStart(2,'0')}</span>`;
  const categoryLabels=(projectData.categories||[]).filter(c=>(p.categories||[]).includes(c.id)).map(c=>localLabel(c.name));
- return `<article class="project-card"><a class="project-card-link" href="#/project/${safeId(p.id)}" aria-label="${esc(x.openCase)}: ${title}"><div class="project-art ${image?'with-image':''}">${art}<span class="project-arrow" aria-hidden="true">↗</span></div><h3>${title} <span aria-hidden="true">↗</span></h3></a><p>${esc(localLabel(p.summary))}</p><div class="tags">${categoryLabels.map(c=>`<span class="tag">${esc(c)}</span>`).join('')}<span class="tag">${esc(p.year||'')}</span></div></article>`;
+ return `<article class="project-card"><a class="project-card-link" href="#/project/${safeId(p.id)}" aria-label="${esc(x.openCase)}: ${title}"><div class="project-art ${image?'with-image':''}">${art}<span class="project-arrow" aria-hidden="true">${iconSvg()}</span></div><h3>${title} ${iconSvg()}</h3></a><p>${esc(localLabel(p.summary))}</p><div class="tags">${categoryLabels.map(c=>`<span class="tag">${esc(c)}</span>`).join('')}<span class="tag">${esc(p.year||'')}</span></div></article>`;
 }
 function renderProjects(t){
  const x=extra();const cats=activeCategories();const choices=[{id:'all',label:x.all},...cats.map(c=>({id:c.id,label:localLabel(c.name)}))];
@@ -298,7 +313,7 @@ function renderProjectDetail(t,slug){
  const x=extra();const p=visibleProjects().find(p=>safeId(p.id)===slug);if(!p)return renderProjects(t);
  const categoryLabels=(projectData.categories||[]).filter(c=>(p.categories||[]).includes(c.id)).map(c=>localLabel(c.name));
  const pdf=fileHref(p.pdf||'');const pic=fileHref(p.image||'');const readyPdf=pdf&&availableDocs.get(pdf)===true;
- return `<section class="page-hero"><div class="wrap"><a class="inline-link back-link" href="#/projects">${esc(x.projectBack)}</a><div class="eyebrow">${esc(categoryLabels.join(' / '))} · ${esc(p.year||'')}</div><h1 class="display-heading">${esc(localLabel(p.title))}<span class="period">.</span></h1><p class="page-intro">${esc(localLabel(p.summary))}</p></div></section><hr class="rule"><section class="section"><div class="wrap case-layout"><div class="case-art ${pic?'has-photo':''}">${pic?`<img src="${pic}" alt="" loading="lazy">`:'<span class="circle pink"></span><span class="circle blue"></span>'}</div><div class="case-copy"><h2>${esc(x.projectAbout)}</h2><p>${esc(localLabel(p.description))}</p><h2>${esc(x.projectRole)}</h2><p>${esc(localLabel(p.role))}</p>${readyPdf?`<div class="case-links"><a class="button primary" href="${pdf}" target="_blank" rel="noopener noreferrer">${esc(x.view)}</a><a class="button ghost" href="${pdf}" download>${esc(x.download)}</a></div>`:''}</div></div></section>`;
+ return `<section class="page-hero"><div class="wrap"><a class="inline-link back-link" href="#/projects">${linkLabel(x.projectBack,'left',true)}</a><div class="eyebrow">${esc(categoryLabels.join(' / '))} · ${esc(p.year||'')}</div><h1 class="display-heading">${esc(localLabel(p.title))}<span class="period">.</span></h1><p class="page-intro">${esc(localLabel(p.summary))}</p></div></section><hr class="rule"><section class="section"><div class="wrap case-layout"><div class="case-art ${pic?'has-photo':''}">${pic?`<img src="${pic}" alt="" loading="lazy">`:'<span class="circle pink"></span><span class="circle blue"></span>'}</div><div class="case-copy"><h2>${esc(x.projectAbout)}</h2><p>${esc(localLabel(p.description))}</p><h2>${esc(x.projectRole)}</h2><p>${esc(localLabel(p.role))}</p>${readyPdf?`<div class="case-links"><a class="button primary" href="${pdf}" target="_blank" rel="noopener noreferrer">${linkLabel(x.view)}</a><a class="button ghost" href="${pdf}" download>${linkLabel(x.download,'down')}</a></div>`:''}</div></div></section>`;
 }
 function render(){
  const t=translations();const x=extra();const current=path();
@@ -334,16 +349,74 @@ function setupUmaImage(){
  img.addEventListener('load',()=>{if(credit)credit.hidden=img.dataset.fallback!=='wikimedia';});
  if(img.complete && img.naturalWidth===0) img.dispatchEvent(new Event('error'));
 }
+// Values preview individually as the visitor scrolls into the section.
+// The auto-flip is brief; tapping/clicking keeps the chosen card open until the next click.
+let valuesObserver=null;
+let valuesPreviewVersion=0;
+let valuesPreviewTimers=[];
 function setupValueCards(){
- document.querySelectorAll('.value-card').forEach(card=>{
-  const set=(flip)=>{card.classList.toggle('is-flipped',flip);card.setAttribute('aria-pressed',String(flip));};
-  card.addEventListener('click',()=>set(!card.classList.contains('is-flipped')));
-  let lastAction=0;
-  card.addEventListener('wheel',e=>{
-   if(reducedMotion.matches || Math.abs(e.deltaY)<5 || Date.now()-lastAction<300)return;
-   lastAction=Date.now();set(e.deltaY>0);
-  },{passive:true});
+ valuesPreviewVersion++;
+ const version=valuesPreviewVersion;
+ if(valuesObserver){valuesObserver.disconnect();valuesObserver=null;}
+ valuesPreviewTimers.forEach(clearTimeout);valuesPreviewTimers=[];
+ const cards=[...main.querySelectorAll('.value-card')];
+ if(!cards.length)return;
+ const queued=[];
+ const seen=new Set();
+ let previewBusy=false;
+ const later=(fn,ms)=>{
+  const id=setTimeout(()=>{
+   valuesPreviewTimers=valuesPreviewTimers.filter(x=>x!==id);
+   if(valuesPreviewVersion===version)fn();
+  },ms);
+  valuesPreviewTimers.push(id);
+ };
+ const nearViewport=card=>{
+  const r=card.getBoundingClientRect();
+  return r.bottom>innerHeight*0.18 && r.top<innerHeight*0.86;
+ };
+ const previewNext=()=>{
+  if(previewBusy||reducedMotion.matches)return;
+  const card=queued.shift();
+  if(!card)return;
+  if(!card.isConnected || card.dataset.userToggled==='true' || !nearViewport(card)){
+   previewNext();return;
+  }
+  previewBusy=true;
+  card.classList.add('is-previewing','is-flipped');
+  // Enough time to read the back without leaving several cards turned together.
+  later(()=>{
+   if(card.dataset.userToggled!=='true')card.classList.remove('is-flipped');
+   card.classList.remove('is-previewing');
+   later(()=>{previewBusy=false;previewNext();},760);
+  },1650);
+ };
+ cards.forEach(card=>{
+  card.addEventListener('click',()=>{
+   const isPreview=card.classList.contains('is-previewing');
+   const next=isPreview ? true : !card.classList.contains('is-flipped');
+   card.dataset.userToggled='true';
+   card.classList.remove('is-previewing');
+   card.classList.toggle('is-flipped',next);
+   card.setAttribute('aria-pressed',String(next));
+  });
  });
+ // Every card activates once, ordered naturally from top to bottom/left to right.
+ // No wheel interception: normal scrolling stays smooth, including on touchscreens.
+ if(!reducedMotion.matches && 'IntersectionObserver' in window){
+  valuesObserver=new IntersectionObserver(entries=>{
+   entries.filter(e=>e.isIntersecting).sort((a,b)=>
+    Number(a.target.dataset.value)-Number(b.target.dataset.value)
+   ).forEach(({target})=>{
+    if(!seen.has(target)){
+     seen.add(target);queued.push(target);
+     valuesObserver.unobserve(target);
+    }
+   });
+   previewNext();
+  },{threshold:.55,rootMargin:'0px 0px -6% 0px'});
+  cards.forEach(card=>valuesObserver.observe(card));
+ }
 }
 let timelineObserver=null;
 function setupTimeline(){
