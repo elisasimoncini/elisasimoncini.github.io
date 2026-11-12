@@ -309,7 +309,7 @@ function render(){
  document.getElementById('nav-projects').textContent=t.projectsNav;
  document.getElementById('footer-label').textContent=t.footerLabel;
  document.getElementById('footer-title').innerHTML=esc(t.footerTitle)+'<span class="period">.</span>';
- document.querySelector('.footer-meta>span:nth-child(3)').textContent=t.place;
+ document.getElementById('footer-location').textContent=t.place;
  document.querySelectorAll('.site-navigation a[data-route]').forEach(a=>{
   const active=a.dataset.route===current.route || (a.dataset.route==='projects' && current.route==='project') || (a.dataset.route==='about' && current.route==='certificates');
   a.classList.toggle('is-active',active); if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');

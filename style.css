@@ -134,3 +134,21 @@
 .footer-phone{font-weight:700;color:var(--burgundy)}
 @media(max-width:850px){.skills-columns{gap:32px}}
 @media(max-width:650px){.section .section-content{max-width:100%}.skills-columns{grid-template-columns:1fr;gap:36px}.people-skill{padding-block:18px}.people-skill h4{font-size:25px}.page-hero .display-heading{margin-top:0}}
+
+
+/* V8 | Contatti riuniti, rispettando i margini e la tipografia editoriale. */
+.footer-grid{grid-template-columns:110px minmax(0,1fr) auto;gap:clamp(26px,4vw,58px);align-items:start}
+.footer-copy{min-width:0}
+.footer-copy h2{margin-bottom:19px}
+.footer-contacts{display:flex;align-items:baseline;flex-wrap:wrap;gap:15px 25px;max-width:850px}
+.footer-contacts a{display:inline-flex;align-items:baseline;gap:4px;color:var(--burgundy);font-size:clamp(12px,1vw,14px);font-weight:600;text-decoration:none;line-height:1.55;border-bottom:1px solid var(--border);padding:0 0 6px;overflow-wrap:anywhere}
+.footer-contacts a:hover{border-bottom-color:var(--burgundy)}
+.footer-contacts .footer-phone{font-weight:700}
+.footer-meta{align-items:flex-end;gap:14px;padding-top:8px;white-space:nowrap;opacity:.8}
+/* Il cerchio ornamentale deve restare fuori dalla zona di lettura. */
+.page-hero::after{width:clamp(105px,11vw,155px);height:clamp(105px,11vw,155px);top:clamp(30px,5vw,70px);bottom:auto;right:-42px;pointer-events:none;z-index:0;opacity:.75}
+.page-hero>.wrap{position:relative;z-index:1}
+/* I testi non vengono mai coperti da una decorazione: a larghezze intermedie si elimina. */
+@media (min-width:651px) and (max-width:1199px){.page-hero::after{display:none}}
+@media(max-width:850px){.footer-grid{grid-template-columns:95px minmax(0,1fr);gap:25px}.footer-meta{grid-column:2;align-items:flex-start;flex-direction:row;flex-wrap:wrap;gap:8px 20px;padding:0}.footer-contacts{gap:12px 22px}}
+@media(max-width:650px){.footer-grid{grid-template-columns:65px minmax(0,1fr);gap:20px}.footer-copy h2{font-size:clamp(33px,9vw,43px);margin:8px 0 18px}.footer-contacts{flex-direction:column;align-items:flex-start;gap:12px}.footer-contacts a{font-size:12px;max-width:100%;overflow-wrap:anywhere}.footer-meta{grid-column:1/-1;align-items:flex-start;gap:8px 20px;padding-top:4px;white-space:normal}.page-hero::after{width:95px;height:95px;top:16px;right:-55px;bottom:auto;opacity:.5}}
