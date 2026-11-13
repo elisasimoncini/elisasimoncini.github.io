@@ -1,3 +1,21 @@
+const portfolioRights = {
+  it: {
+    footer:'Le presentazioni e gli elaborati originali sono pubblicati per consultazione. Riproduzione, distribuzione e utilizzo commerciale richiedono autorizzazione scritta, salvi gli usi consentiti dalla legge.',
+    heading:'Nota sui diritti',
+    detail:'I concept, le analisi e gli elaborati originali presentati sono sviluppati da Elisa Simoncini e condivisi per consultazione e valutazione professionale. La riproduzione, la distribuzione, l’adattamento e l’uso commerciale non sono autorizzati senza consenso scritto, salvi gli usi consentiti dalla legge. Marchi, loghi e materiali di terzi restano dei rispettivi titolari. Salvo diversa indicazione, il progetto è indipendente e non implica una collaborazione o un’approvazione dei marchi citati.'
+  },
+  en: {
+    footer:'Original presentations and creative materials are provided for viewing only. Reproduction, redistribution and commercial use require prior written permission, except where permitted by law.',
+    heading:'Rights notice',
+    detail:'Original concepts, analyses and creative materials presented here have been developed by Elisa Simoncini and are shared for viewing and professional assessment. Reproduction, distribution, adaptation or commercial use without prior written permission is not authorised, except where permitted by law. Third-party names, trademarks, logos and materials remain the property of their respective owners. Unless otherwise stated, this is an independent project and does not imply endorsement or collaboration by the brands mentioned.'
+  },
+  es: {
+    footer:'Las presentaciones y los materiales creativos originales se comparten para su consulta. Su reproducción, distribución y uso comercial requieren autorización previa por escrito, salvo los usos permitidos por la ley.',
+    heading:'Aviso sobre derechos',
+    detail:'Los conceptos, análisis y materiales creativos originales aquí presentados han sido desarrollados por Elisa Simoncini y se comparten para su consulta y evaluación profesional. No se autoriza su reproducción, distribución, adaptación ni utilización comercial sin permiso previo por escrito, salvo los usos permitidos por la ley. Las marcas, logotipos y materiales de terceros pertenecen a sus respectivos titulares. Salvo indicación contraria, se trata de un proyecto independiente que no implica colaboración ni aprobación de las marcas mencionadas.'
+  }
+};
+
 /* ELISA SIMONCINI · Portfolio / Edit translation strings and projects here. */
 const content = {
   it: {
@@ -333,7 +351,7 @@ function renderProjectDetail(t,slug){
   ? `<div class="case-pdf-display"><iframe class="case-pdf-frame" src="${pdf}#toolbar=1&navpanes=0&view=FitH" title="${esc(strings.pdfTitle)}: ${title}" loading="lazy"></iframe></div><div class="case-mobile-pdf"><a class="case-mobile-pdf-link" href="${pdf}" target="_blank" rel="noopener noreferrer"><span>${esc(strings.presentation)}</span>${iconSvg()}<strong>${title}</strong></a></div>`
   : `<div class="case-pdf-placeholder" aria-label="${esc(strings.pending)}"><span class="case-placeholder-mark">${title}</span><span class="case-placeholder-sub">${esc(strings.pending)}</span></div>`;
  const tagList=catNames.length?`<div class="case-category-group"><h3>${esc(strings.tags)}</h3><div class="tags">${catNames.map(tag=>`<span class="tag">${esc(tag)}</span>`).join('')}</div></div>`:'';
- return `<section class="page-hero project-detail-hero"><div class="wrap"><a class="inline-link back-link" href="#/projects">${linkLabel(x.projectBack,'left',true)}</a><h1 class="display-heading">${title}<span class="period">.</span></h1></div></section><section class="section case-section"><div class="wrap case-layout"><div class="case-presentation"><span class="case-overline">${esc(strings.presentation)}</span>${presentation}</div><aside class="case-copy">${kind?`<span class="case-project-kind">${esc(kind)}</span>`:''}<h2>${esc(x.projectAbout)}</h2><p>${description}</p>${tagList}${pdfActions}</aside></div></section>`;
+ return `<section class="page-hero project-detail-hero"><div class="wrap"><a class="inline-link back-link" href="#/projects">${linkLabel(x.projectBack,'left',true)}</a><h1 class="display-heading">${title}<span class="period">.</span></h1></div></section><section class="section case-section"><div class="wrap case-layout"><div class="case-presentation"><span class="case-overline">${esc(strings.presentation)}</span>${presentation}</div><aside class="case-copy">${kind?`<span class="case-project-kind">${esc(kind)}</span>`:''}<h2>${esc(x.projectAbout)}</h2><p>${description}</p>${tagList}${pdfActions}</aside></div><div class="wrap"><div class="case-rights-notice"><span class="case-rights-heading">${esc(portfolioRights[language].heading)}</span><p>${esc(portfolioRights[language].detail)}</p></div></div></section>`;
 }
 function render(){
  const t=translations();const x=extra();const current=path();
@@ -345,6 +363,7 @@ function render(){
  document.getElementById('footer-label').textContent=t.footerLabel;
  document.getElementById('footer-title').innerHTML=esc(t.footerTitle)+'<span class="period">.</span>';
  document.getElementById('footer-location').textContent=t.place;
+ document.getElementById('footer-rights-notice').textContent=portfolioRights[language].footer;
  document.querySelectorAll('.site-navigation a[data-route]').forEach(a=>{
   const active=a.dataset.route===current.route || (a.dataset.route==='projects' && current.route==='project') || (a.dataset.route==='about' && current.route==='certificates');
   a.classList.toggle('is-active',active); if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');

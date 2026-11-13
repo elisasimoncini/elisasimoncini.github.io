@@ -280,3 +280,10 @@
   .project-card--with-image .project-art{height:auto;aspect-ratio:16/9}
   .project-card-kind{margin-top:17px}
 }
+
+/* V13 · discrete rights notices across the site and project pages. */
+.footer-rights-notice{grid-column:1/-1;max-width:800px;border-top:1px solid var(--border);padding-top:17px;margin:4px 0 0;color:var(--espresso);opacity:.75;font-size:11px;line-height:1.75;letter-spacing:.01em}
+.case-rights-notice{grid-column:1/-1;margin-top:clamp(14px,3vw,35px);padding:18px 0 0;border-top:1px solid var(--border);max-width:900px}
+.case-rights-heading{display:block;margin-bottom:9px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--burgundy)}
+.case-rights-notice p{max-width:90ch;color:var(--espresso);opacity:.8;font-size:12px;line-height:1.9;margin:0}
+@media (max-width:650px){.footer-rights-notice{font-size:11px;max-width:100%}.case-rights-notice p{font-size:11px}}
