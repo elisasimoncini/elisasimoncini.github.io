@@ -1,22 +1,87 @@
 {
   "categories": [
-    {"id":"processi", "name":{"it":"Processi e strumenti", "en":"Processes & tools", "es":"Procesos y herramientas"}},
-    {"id":"strategia", "name":{"it":"Brand e strategia", "en":"Brand & strategy", "es":"Marca y estrategia"}},
-    {"id":"comunicazione", "name":{"it":"Marketing e comunicazione", "en":"Marketing & communication", "es":"Marketing y comunicación"}},
-    {"id":"eventi", "name":{"it":"Eventi ed esperienze", "en":"Events & experiences", "es":"Eventos y experiencias"}}
+    {
+      "id": "brand",
+      "name": {
+        "it": "Brand & Strategy",
+        "en": "Brand & Strategy",
+        "es": "Marca y estrategia"
+      }
+    },
+    {
+      "id": "research",
+      "name": {
+        "it": "Ricerca e innovazione",
+        "en": "Research & Innovation",
+        "es": "Investigación e innovación"
+      }
+    },
+    {
+      "id": "campaigns",
+      "name": {
+        "it": "Campagne ed esperienze",
+        "en": "Campaigns & Experiences",
+        "es": "Campañas y experiencias"
+      }
+    }
   ],
   "projects": [
     {
-      "id":"workflow-tools",
-      "visible":true,
-      "year":"2025–2026",
-      "categories":["processi"],
-      "title":{"it":"Strumenti per lavorare meglio", "en":"Tools for better workflows", "es":"Herramientas para trabajar mejor"},
-      "summary":{"it":"Pianificazione e monitoraggio dei progetti attraverso Google Sheets e Looker Studio.", "en":"Project planning and monitoring with Google Sheets and Looker Studio.", "es":"Planificación y seguimiento de proyectos con Google Sheets y Looker Studio."},
-      "description":{"it":"In INDUSTRY ho contribuito a sviluppare strumenti interni per migliorare pianificazione, monitoraggio e coordinamento dei progetti. I materiali operativi non vengono pubblicati per tutelare le informazioni aziendali.", "en":"At INDUSTRY, I contributed to internal tools that improve project planning, monitoring and coordination. Operational materials are not published to protect company information.", "es":"En INDUSTRY participé en el desarrollo de herramientas internas para mejorar la planificación, el seguimiento y la coordinación. No se publican materiales operativos para proteger la información de la empresa."},
-      "role":{"it":"Project Management · processi e reporting", "en":"Project management · workflows and reporting", "es":"Gestión de proyectos · procesos e informes"},
-      "image":"",
-      "pdf":""
+      "id": "malfy-gin",
+      "visible": true,
+      "year": "2026",
+      "categories": ["brand", "research"],
+      "title": {"it": "Malfy Gin", "en": "Malfy Gin", "es": "Malfy Gin"},
+      "type": {
+        "it": "CASE STUDY ACCADEMICO INDIPENDENTE",
+        "en": "INDEPENDENT ACADEMIC CASE STUDY",
+        "es": "CASO ACADÉMICO INDEPENDIENTE"
+      },
+      "coverText": {"it": "Malfy Gin", "en": "Malfy Gin", "es": "Malfy Gin"},
+      "summary": {
+        "it": "Una proposta di innovazione di prodotto per Malfy, tra strategia di marca, ricerca e neuromarketing.",
+        "en": "A product innovation concept for Malfy, bringing together brand strategy, research and neuromarketing.",
+        "es": "Una propuesta de innovación de producto para Malfy que combina estrategia de marca, investigación y neuromarketing."
+      },
+      "description": {
+        "it": "Case study accademico indipendente, non commissionato da Malfy. Il progetto esplora una possibile nuova referenza al bergamotto, attraverso analisi del brand, confronto con il cedro e sviluppo di un concept coerente con la gamma. Propone un percorso di validazione su gusto, packaging, riconoscibilità e comunicazione, con metriche e criteri decisionali. I test descritti non sono stati eseguiti e non vengono presentati risultati di mercato misurati.",
+        "en": "An independent academic case study, not commissioned by Malfy. The project explores a possible bergamot gin variant through brand analysis, a comparison with citron and the development of a concept aligned with the existing range. It proposes a research programme covering taste, packaging, brand recognition and communication, with evaluation metrics and decision criteria. The tests were not carried out, and no measured market results are claimed.",
+        "es": "Caso académico independiente, no encargado por Malfy. El proyecto explora una posible nueva referencia de bergamota mediante el análisis de marca, la comparación con la cidra y el desarrollo de un concepto coherente con la gama. Propone un plan de validación sobre sabor, envase, reconocimiento y comunicación, con métricas y criterios de decisión. Los estudios planteados no se han realizado y no se presentan resultados de mercado medidos."
+      },
+      "image": "assets/projects/malfy-gin.webp",
+      "pdf": "projects/malfy-gin.pdf"
+    },
+    {
+      "id": "tonino-lamborghini",
+      "visible": true,
+      "categories": ["brand", "campaigns"],
+      "title": {
+        "it": "Tonino Lamborghini | Heritage in Motion",
+        "en": "Tonino Lamborghini | Heritage in Motion",
+        "es": "Tonino Lamborghini | Heritage in Motion"
+      },
+      "type": {
+        "it": "CONCEPT ACCADEMICO INDIPENDENTE",
+        "en": "INDEPENDENT ACADEMIC CONCEPT",
+        "es": "CONCEPTO ACADÉMICO INDEPENDIENTE"
+      },
+      "coverText": {
+        "it": "Tonino Lamborghini",
+        "en": "Tonino Lamborghini",
+        "es": "Tonino Lamborghini"
+      },
+      "summary": {
+        "it": "Una strategia di heritage marketing che interpreta il patrimonio Tonino Lamborghini attraverso campagne ed esperienze contemporanee.",
+        "en": "A heritage marketing strategy that brings Tonino Lamborghini's legacy into contemporary campaigns and experiences.",
+        "es": "Una estrategia de heritage marketing que conecta el legado de Tonino Lamborghini con campañas y experiencias contemporáneas."
+      },
+      "description": {
+        "it": "Concept accademico indipendente, non commissionato da Tonino Lamborghini. Il progetto propone una strategia di heritage marketing per valorizzare l’identità italiana del marchio lifestyle, distinguendola da Automobili Lamborghini. Sviluppa sei campagne integrate: una mostra itinerante, esperienze premium, capsule di co-branding e un brand film, con customer journey, roadmap, metriche e valutazione della fattibilità. Le collaborazioni e le campagne illustrate sono ipotetiche, non realizzate.",
+        "en": "An independent academic concept, not commissioned by Tonino Lamborghini. The project proposes a heritage marketing strategy to strengthen the Italian identity of the lifestyle brand, clearly distinguishing it from Automobili Lamborghini. It develops six integrated campaign concepts, including a travelling exhibition, premium experiences, co-branding capsules and a brand film, alongside a customer journey, roadmap, metrics and feasibility considerations. All proposed collaborations and campaigns are hypothetical, not implemented.",
+        "es": "Concepto académico independiente, no encargado por Tonino Lamborghini. El proyecto propone una estrategia de heritage marketing para reforzar la identidad italiana de la marca lifestyle, diferenciándola de Automobili Lamborghini. Desarrolla seis propuestas de campaña, entre ellas una exposición itinerante, experiencias prémium, cápsulas de co-branding y un brand film, con customer journey, hoja de ruta, métricas y análisis de viabilidad. Las colaboraciones y campañas presentadas son hipotéticas y no se han realizado."
+      },
+      "image": "assets/projects/tonino-lamborghini.webp",
+      "pdf": "projects/tonino-lamborghini.pdf"
     }
   ]
 }
