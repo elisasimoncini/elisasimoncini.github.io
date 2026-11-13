@@ -298,9 +298,10 @@ function activeCategories(){
 function projectCard(p,i,x){
  const title=esc(localLabel(p.title));
  const image=fileHref(p.image||'');
- const art=image?`<img src="${image}" alt="" loading="lazy" decoding="async">`:`<span class="project-number">${String(i+1).padStart(2,'0')}</span>`;
+ const art=image?`<img src="${image}" alt="" loading="lazy" decoding="async">`:`<span class="project-fallback-title">${esc(localLabel(p.coverText||p.title))}</span>`;
  const categoryLabels=(projectData.categories||[]).filter(c=>(p.categories||[]).includes(c.id)).map(c=>localLabel(c.name));
- return `<article class="project-card"><a class="project-card-link" href="#/project/${safeId(p.id)}" aria-label="${esc(x.openCase)}: ${title}"><div class="project-art ${image?'with-image':''}">${art}<span class="project-arrow" aria-hidden="true">${iconSvg()}</span></div><h3>${title} ${iconSvg()}</h3></a><p>${esc(localLabel(p.summary))}</p><div class="tags">${categoryLabels.map(c=>`<span class="tag">${esc(c)}</span>`).join('')}<span class="tag">${esc(p.year||'')}</span></div></article>`;
+ const kind=localLabel(p.type);
+ return `<article class="project-card ${image?'project-card--with-image':'project-card--no-image'}"><a class="project-card-link" href="#/project/${safeId(p.id)}" aria-label="${esc(x.openCase)}: ${title}"><div class="project-art ${image?'with-image':''}">${art}<span class="project-arrow" aria-hidden="true">${iconSvg()}</span></div>${kind?`<span class="project-card-kind">${esc(kind)}</span>`:''}<h3>${title} ${iconSvg()}</h3></a><p>${esc(localLabel(p.summary))}</p><div class="tags">${categoryLabels.map(c=>`<span class="tag">${esc(c)}</span>`).join('')}${p.year?`<span class="tag">${esc(p.year)}</span>`:''}</div></article>`;
 }
 function renderProjects(t){
  const x=extra();const cats=activeCategories();const choices=[{id:'all',label:x.all},...cats.map(c=>({id:c.id,label:localLabel(c.name)}))];
@@ -310,10 +311,29 @@ function renderProjects(t){
  return `<section class="page-hero"><div class="wrap"><h1 class="display-heading">${esc(t.projectTitle)}<span class="period">.</span></h1><p class="page-intro">${esc(t.projectIntro)}</p></div></section><hr class="rule"><section class="section projects-section"><div class="wrap"><div class="filter-row" role="group" aria-label="${esc(t.projectTitle)}">${filters}</div><div class="project-grid" id="filtered-projects" aria-live="polite">${list.length?list.map((p,i)=>projectCard(p,i,x)).join(''):`<p class="empty-note">${esc(x.projectEmpty)}</p>`}</div></div></section>`;
 }
 function renderProjectDetail(t,slug){
- const x=extra();const p=visibleProjects().find(p=>safeId(p.id)===slug);if(!p)return renderProjects(t);
- const categoryLabels=(projectData.categories||[]).filter(c=>(p.categories||[]).includes(c.id)).map(c=>localLabel(c.name));
- const pdf=fileHref(p.pdf||'');const pic=fileHref(p.image||'');const readyPdf=pdf&&availableDocs.get(pdf)===true;
- return `<section class="page-hero"><div class="wrap"><a class="inline-link back-link" href="#/projects">${linkLabel(x.projectBack,'left',true)}</a><div class="eyebrow">${esc(categoryLabels.join(' / '))} · ${esc(p.year||'')}</div><h1 class="display-heading">${esc(localLabel(p.title))}<span class="period">.</span></h1><p class="page-intro">${esc(localLabel(p.summary))}</p></div></section><hr class="rule"><section class="section"><div class="wrap case-layout"><div class="case-art ${pic?'has-photo':''}">${pic?`<img src="${pic}" alt="" loading="lazy">`:'<span class="circle pink"></span><span class="circle blue"></span>'}</div><div class="case-copy"><h2>${esc(x.projectAbout)}</h2><p>${esc(localLabel(p.description))}</p><h2>${esc(x.projectRole)}</h2><p>${esc(localLabel(p.role))}</p>${readyPdf?`<div class="case-links"><a class="button primary" href="${pdf}" target="_blank" rel="noopener noreferrer">${linkLabel(x.view)}</a><a class="button ghost" href="${pdf}" download>${linkLabel(x.download,'down')}</a></div>`:''}</div></div></section>`;
+ const x=extra();
+ const p=visibleProjects().find(item=>safeId(item.id)===slug);
+ if(!p)return renderProjects(t);
+ const title=esc(localLabel(p.title));
+ const description=esc(localLabel(p.description||p.summary));
+ const kind=localLabel(p.type);
+ const catNames=(projectData.categories||[])
+  .filter(c=>(p.categories||[]).includes(c.id))
+  .map(c=>localLabel(c.name));
+ const pdf=fileHref(p.pdf||'');
+ const pdfReady=Boolean(pdf && availableDocs.get(pdf)===true);
+ const textByLanguage={
+  it:{presentation:'Presentazione',open:'Apri la presentazione',download:'Scarica il PDF',tags:'Ambiti',pending:'Presentazione in arrivo',pdfTitle:'Presentazione del progetto'},
+  en:{presentation:'Presentation',open:'Open presentation',download:'Download PDF',tags:'Areas',pending:'Presentation coming soon',pdfTitle:'Project presentation'},
+  es:{presentation:'Presentación',open:'Abrir presentación',download:'Descargar PDF',tags:'Áreas',pending:'Presentación próximamente',pdfTitle:'Presentación del proyecto'}
+ };
+ const strings=textByLanguage[language];
+ const pdfActions=pdfReady?`<div class="case-links"><a class="button primary" href="${pdf}" target="_blank" rel="noopener noreferrer">${linkLabel(strings.open)}</a><a class="button ghost" href="${pdf}" download>${linkLabel(strings.download,'down')}</a></div>`:'';
+ const presentation=pdfReady
+  ? `<div class="case-pdf-display"><iframe class="case-pdf-frame" src="${pdf}#toolbar=1&navpanes=0&view=FitH" title="${esc(strings.pdfTitle)}: ${title}" loading="lazy"></iframe></div><div class="case-mobile-pdf"><a class="case-mobile-pdf-link" href="${pdf}" target="_blank" rel="noopener noreferrer"><span>${esc(strings.presentation)}</span>${iconSvg()}<strong>${title}</strong></a></div>`
+  : `<div class="case-pdf-placeholder" aria-label="${esc(strings.pending)}"><span class="case-placeholder-mark">${title}</span><span class="case-placeholder-sub">${esc(strings.pending)}</span></div>`;
+ const tagList=catNames.length?`<div class="case-category-group"><h3>${esc(strings.tags)}</h3><div class="tags">${catNames.map(tag=>`<span class="tag">${esc(tag)}</span>`).join('')}</div></div>`:'';
+ return `<section class="page-hero project-detail-hero"><div class="wrap"><a class="inline-link back-link" href="#/projects">${linkLabel(x.projectBack,'left',true)}</a><h1 class="display-heading">${title}<span class="period">.</span></h1></div></section><section class="section case-section"><div class="wrap case-layout"><div class="case-presentation"><span class="case-overline">${esc(strings.presentation)}</span>${presentation}</div><aside class="case-copy">${kind?`<span class="case-project-kind">${esc(kind)}</span>`:''}<h2>${esc(x.projectAbout)}</h2><p>${description}</p>${tagList}${pdfActions}</aside></div></section>`;
 }
 function render(){
  const t=translations();const x=extra();const current=path();
@@ -473,7 +493,7 @@ document.addEventListener('click',e=>{
 document.getElementById('year').textContent=new Date().getFullYear();
 async function loadData(){
  const read=async(path,fallback)=>{
-  try{const r=await fetch(path+'?v=6',{cache:'no-store'});if(!r.ok)throw new Error(r.status);return await r.json();}
+  try{const r=await fetch(path+'?v=11',{cache:'no-store'});if(!r.ok)throw new Error(r.status);return await r.json();}
   catch(err){console.warn('Cannot load',path,err);return fallback;}
  };
  const [projects,certificates,cv]=await Promise.all([

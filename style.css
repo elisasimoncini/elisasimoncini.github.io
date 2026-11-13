@@ -173,3 +173,110 @@
 @media(hover:hover) and (pointer:fine){
  .value-card.is-previewing .value-core,.value-card.is-previewing:hover .value-core{transform:rotateY(180deg)}
 }
+
+
+/* V10 | Pagina progetto: presentazione orizzontale a sinistra, dettagli a destra. */
+.project-detail-hero{padding-top:clamp(42px,6vw,80px);padding-bottom:clamp(25px,3vw,42px)}
+.project-detail-hero .back-link{margin-bottom:clamp(18px,3vw,35px)}
+.project-detail-hero .display-heading{margin-bottom:0}
+.case-section{padding-top:clamp(15px,2.6vw,38px);padding-bottom:clamp(85px,8vw,125px)}
+.case-section .case-layout{
+ display:grid;grid-template-columns:minmax(0,1.8fr) minmax(245px,.83fr);
+ align-items:start;gap:clamp(25px,3.7vw,65px)
+}
+.case-presentation,.case-copy{min-width:0}
+.case-overline{display:block;font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+ color:var(--burgundy);font-weight:800;margin-bottom:17px}
+.case-pdf-display{background:#e8dfda;border:1px solid rgba(86,29,45,.2);
+ box-shadow:0 10px 28px rgba(48,35,33,.06);overflow:hidden}
+.case-pdf-frame{width:100%;height:clamp(390px,43vw,650px);display:block;border:0;background:#e8dfda}
+.case-copy{padding-top:clamp(8px,2.3vw,31px)}
+.case-copy h2{font-family:var(--serif);font-size:clamp(25px,2.6vw,37px);
+ color:var(--burgundy);font-weight:400;margin:0 0 19px;line-height:1.22}
+.case-copy p{font-size:15px;line-height:1.85;max-width:38ch;margin:0}
+.case-category-group{margin-top:34px;padding-top:20px;border-top:1px solid var(--border)}
+.case-category-group h3{font-size:11px;text-transform:uppercase;color:var(--burgundy);
+ letter-spacing:.12em;margin:0 0 15px;font-weight:800}
+.case-category-group .tags{margin-top:0;gap:9px}
+.case-category-group .tag{background:transparent;border-color:rgba(86,29,45,.34);padding:10px 13px;font-size:11px}
+.case-copy .case-links{display:flex;flex-wrap:wrap;gap:12px;margin:32px 0 0}
+.case-copy .case-links .button{justify-content:center}
+.case-pdf-placeholder{min-height:clamp(270px,38vw,540px);background:linear-gradient(115deg,rgba(217,169,181,.4),rgba(245,240,231,.85) 52%,rgba(183,201,222,.5));
+ display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;border:1px solid var(--border);padding:35px;text-align:center}
+.case-placeholder-mark{font-family:var(--serif);font-size:clamp(35px,5vw,70px);color:var(--burgundy);line-height:1.1}
+.case-placeholder-sub{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--espresso)}
+.case-mobile-pdf{display:none}
+.project-card--no-image .project-fallback-title{position:relative;z-index:2;
+ color:var(--burgundy);font-family:var(--serif);font-size:clamp(40px,4.8vw,75px);line-height:.95;
+ font-weight:500;max-width:75%;text-align:center;text-wrap:balance;letter-spacing:-.055em;}
+.project-grid>.project-card:only-child{max-width:625px}
+@media(max-width:1000px){
+ .case-section .case-layout{grid-template-columns:minmax(0,1.55fr) minmax(230px,.85fr);gap:28px}
+ .case-pdf-frame{height:clamp(340px,48vw,540px)}
+}
+@media(max-width:770px){
+ .case-section .case-layout{grid-template-columns:minmax(0,1fr);gap:28px}
+ .case-copy{padding-top:0}
+ .case-copy p{max-width:65ch}
+ .case-pdf-frame{height:clamp(330px,65vw,570px)}
+}
+@media(max-width:600px){
+ .project-detail-hero{padding-top:45px}
+ .case-section{padding-top:12px}
+ .case-pdf-display{display:none}
+ .case-mobile-pdf{display:block}
+ .case-mobile-pdf-link{min-height:235px;position:relative;display:flex;flex-direction:column;
+ justify-content:center;align-items:center;text-align:center;text-decoration:none;gap:20px;
+ color:var(--burgundy);background:linear-gradient(130deg,rgba(217,169,181,.4),var(--cream),rgba(183,201,222,.5));
+ border:1px solid var(--border);padding:25px}
+ .case-mobile-pdf-link>span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800}
+ .case-mobile-pdf-link>strong{font-family:var(--serif);font-size:clamp(26px,7vw,38px);font-weight:500}
+ .case-mobile-pdf-link .ui-arrow{height:30px;width:30px}
+ .case-pdf-placeholder{min-height:240px}
+ .case-copy .case-links{gap:10px}
+ .case-copy .case-links .button{max-width:100%}
+ .project-card--no-image .project-fallback-title{font-size:clamp(35px,11vw,58px)}
+}
+@media(prefers-reduced-motion:reduce){.case-pdf-display,.case-mobile-pdf-link{scroll-behavior:auto}}
+
+
+/* V11 · Original horizontal deck covers, academic context, responsive project gallery. */
+.project-card--with-image .project-art{
+  aspect-ratio:16/9;
+  height:auto;
+  background:var(--cream);
+}
+.project-card--with-image .project-art::before,
+.project-card--with-image .project-art::after{display:none}
+.project-card--with-image .project-art img{
+  display:block;
+  width:100%;height:100%;
+  object-fit:contain;
+}
+.project-card-kind,.case-project-kind{
+  display:block;
+  margin-top:19px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  font-size:10px;
+  line-height:1.5;
+  color:var(--burgundy);
+}
+.project-card-kind+h3{margin-top:10px}
+.case-project-kind{margin:0 0 18px}
+.project-card-link:focus-visible{outline:2px solid var(--burgundy);outline-offset:5px}
+.project-card--with-image .project-arrow{
+  width:48px;height:48px;
+  right:14px;top:14px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  color:var(--burgundy);
+  background:rgba(245,240,231,.96);
+  box-shadow:0 3px 14px rgba(48,35,33,.1);
+}
+.project-card--with-image .project-arrow .ui-arrow{width:24px;height:24px}
+@media(max-width:650px){
+  .project-card--with-image .project-art{height:auto;aspect-ratio:16/9}
+  .project-card-kind{margin-top:17px}
+}
