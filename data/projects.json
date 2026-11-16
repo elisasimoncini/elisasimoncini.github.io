@@ -23,24 +23,23 @@
         "en": "Campaigns & Experiences",
         "es": "Campañas y experiencias"
       }
+    },
+    {
+      "id": "neuromarketing",
+      "name": {
+        "it": "Neuromarketing",
+        "en": "Neuromarketing",
+        "es": "Neuromarketing"
+      }
+    },
+    {
+      "id": "heritage",
+      "name": {
+        "it": "Heritage Marketing",
+        "en": "Heritage Marketing",
+        "es": "Heritage Marketing"
+      }
     }
-    ,
-{
-  "id": "neuromarketing",
-  "name": {
-    "it": "Neuromarketing",
-    "en": "Neuromarketing",
-    "es": "Neuromarketing"
-  }
-},
-{
-  "id": "heritage",
-  "name": {
-    "it": "Heritage Marketing",
-    "en": "Heritage Marketing",
-    "es": "Heritage Marketing"
-  }
-}
   ],
   "projects": [
     {
