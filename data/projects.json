@@ -39,6 +39,14 @@
         "en": "Heritage Marketing",
         "es": "Heritage Marketing"
       }
+    },
+    {
+      "id": "digital",
+      "name": {
+        "it": "Digital Marketing",
+        "en": "Digital Marketing",
+        "es": "Marketing digital"
+      }
     }
   ],
   "projects": [
@@ -113,6 +121,62 @@
       },
       "image": "assets/projects/tonino-lamborghini.webp",
       "pdf": "projects/tonino-lamborghini.pdf"
+    },
+    {
+      "id": "etat-pur",
+      "visible": true,
+      "categories": [
+        "digital"
+      ],
+      "tags": [
+        {
+          "it": "Social Media Strategy",
+          "en": "Social Media Strategy",
+          "es": "Estrategia de redes sociales"
+        },
+        {
+          "it": "Strategia omnichannel",
+          "en": "Omnichannel Strategy",
+          "es": "Estrategia omnicanal"
+        },
+        {
+          "it": "CRM & DEM",
+          "en": "CRM & Email Marketing",
+          "es": "CRM y email marketing"
+        }
+      ],
+      "title": {
+        "it": "État Pur | Less Noise. More Skin.",
+        "en": "État Pur | Less Noise. More Skin.",
+        "es": "État Pur | Less Noise. More Skin."
+      },
+      "type": {
+        "it": "CASE STUDY ACCADEMICO INDIPENDENTE",
+        "en": "INDEPENDENT ACADEMIC CASE STUDY",
+        "es": "CASO ACADÉMICO INDEPENDIENTE"
+      },
+      "coverText": {
+        "it": "État Pur",
+        "en": "État Pur",
+        "es": "État Pur"
+      },
+      "summary": {
+        "it": "Una strategia digitale integrata per État Pur: social media, campagne Search e Meta, landing page e CRM lungo la customer journey.",
+        "en": "An integrated digital strategy for État Pur: social media, Search and Meta campaigns, landing pages and CRM across the customer journey.",
+        "es": "Una estrategia digital integrada para État Pur: redes sociales, campañas de Search y Meta, landing pages y CRM a lo largo del recorrido del cliente."
+      },
+      "description": {
+        "it": "Case study accademico indipendente, non commissionato da État Pur. Partendo da ricerca, analisi competitiva e segmentazione, il progetto sviluppa tre campagne coordinate per awareness, consideration e lead generation. Instagram, Google Search, Meta Ads, landing page, contenuti educativi ed email nurturing hanno ruoli distinti all’interno di una customer journey coerente. Completano la proposta concept social, DEM, piano editoriale, KPI e roadmap di test. Le campagne sono ipotesi progettuali e non sono state pubblicate.",
+        "en": "An independent academic case study, not commissioned by État Pur. Starting from research, competitive analysis and audience segmentation, the project develops three connected campaigns for awareness, consideration and lead generation. Instagram, Google Search, Meta Ads, landing pages, educational content and email nurturing play distinct roles across a consistent customer journey. Social concepts, email creative, an editorial plan, KPIs and a testing roadmap complete the proposal. The campaigns are conceptual and were not launched.",
+        "es": "Caso académico independiente, no encargado por État Pur. A partir de investigación, análisis competitivo y segmentación, el proyecto desarrolla tres campañas coordinadas de notoriedad, consideración y captación de contactos. Instagram, Google Search, Meta Ads, landing pages, contenidos educativos y email nurturing cumplen funciones distintas en un recorrido del cliente coherente. Incluye conceptos sociales, piezas de email, plan editorial, KPI y hoja de ruta de pruebas. Son propuestas no publicadas."
+      },
+      "role": {
+        "it": "Ideazione della strategia digitale, analisi e segmentazione, definizione della customer journey e degli obiettivi per canale, concept delle campagne social e DEM, pianificazione editoriale e framework di misurazione.",
+        "en": "Digital strategy development, research and audience segmentation, customer journey and channel objectives, social and email campaign concepts, editorial planning and measurement framework.",
+        "es": "Desarrollo de la estrategia digital, investigación y segmentación, recorrido del cliente y objetivos por canal, conceptos de campañas sociales y email, planificación editorial y marco de medición."
+      },
+      "image": "assets/projects/etat-pur.webp",
+      "pdf": "projects/etat-pur.pdf"
     }
   ]
 }
