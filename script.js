@@ -313,11 +313,16 @@ function activeCategories(){
  const used=new Set(visibleProjects().flatMap(p=>Array.isArray(p.categories)?p.categories:[]));
  return (projectData.categories||[]).filter(c=>used.has(c.id));
 }
+function projectTagLabels(p){
+ const categoryLabels=(projectData.categories||[]).filter(c=>(p.categories||[]).includes(c.id)).map(c=>localLabel(c.name));
+ const extraTags=Array.isArray(p.tags)?p.tags.map(tag=>localLabel(tag)).filter(Boolean):[];
+ return [...new Set([...categoryLabels,...extraTags])];
+}
 function projectCard(p,i,x){
  const title=esc(localLabel(p.title));
  const image=fileHref(p.image||'');
  const art=image?`<img src="${image}" alt="" loading="lazy" decoding="async">`:`<span class="project-fallback-title">${esc(localLabel(p.coverText||p.title))}</span>`;
- const categoryLabels=(projectData.categories||[]).filter(c=>(p.categories||[]).includes(c.id)).map(c=>localLabel(c.name));
+ const categoryLabels=projectTagLabels(p);
  const kind=localLabel(p.type);
  return `<article class="project-card ${image?'project-card--with-image':'project-card--no-image'}"><a class="project-card-link" href="#/project/${safeId(p.id)}" aria-label="${esc(x.openCase)}: ${title}"><div class="project-art ${image?'with-image':''}">${art}<span class="project-arrow" aria-hidden="true">${iconSvg()}</span></div>${kind?`<span class="project-card-kind">${esc(kind)}</span>`:''}<h3>${title} ${iconSvg()}</h3></a><p>${esc(localLabel(p.summary))}</p><div class="tags">${categoryLabels.map(c=>`<span class="tag">${esc(c)}</span>`).join('')}${p.year?`<span class="tag">${esc(p.year)}</span>`:''}</div></article>`;
 }
@@ -335,9 +340,10 @@ function renderProjectDetail(t,slug){
  const title=esc(localLabel(p.title));
  const description=esc(localLabel(p.description||p.summary));
  const kind=localLabel(p.type);
- const catNames=(projectData.categories||[])
-  .filter(c=>(p.categories||[]).includes(c.id))
-  .map(c=>localLabel(c.name));
+ const catNames=projectTagLabels(p);
+ const role=localLabel(p.role);
+ const roleLabels={it:'Il mio contributo',en:'My contribution',es:'Mi contribución'};
+ const roleBlock=role?`<div class="case-role"><h3>${esc(roleLabels[language])}</h3><p>${esc(role)}</p></div>`:'';
  const pdf=fileHref(p.pdf||'');
  const pdfReady=Boolean(pdf && availableDocs.get(pdf)===true);
  const textByLanguage={
@@ -351,7 +357,7 @@ function renderProjectDetail(t,slug){
   ? `<div class="case-pdf-display"><iframe class="case-pdf-frame" src="${pdf}#toolbar=1&navpanes=0&view=FitH" title="${esc(strings.pdfTitle)}: ${title}" loading="lazy"></iframe></div><div class="case-mobile-pdf"><a class="case-mobile-pdf-link" href="${pdf}" target="_blank" rel="noopener noreferrer"><span>${esc(strings.presentation)}</span>${iconSvg()}<strong>${title}</strong></a></div>`
   : `<div class="case-pdf-placeholder" aria-label="${esc(strings.pending)}"><span class="case-placeholder-mark">${title}</span><span class="case-placeholder-sub">${esc(strings.pending)}</span></div>`;
  const tagList=catNames.length?`<div class="case-category-group"><h3>${esc(strings.tags)}</h3><div class="tags">${catNames.map(tag=>`<span class="tag">${esc(tag)}</span>`).join('')}</div></div>`:'';
- return `<section class="page-hero project-detail-hero"><div class="wrap"><a class="inline-link back-link" href="#/projects">${linkLabel(x.projectBack,'left',true)}</a><h1 class="display-heading">${title}<span class="period">.</span></h1></div></section><section class="section case-section"><div class="wrap case-layout"><div class="case-presentation"><span class="case-overline">${esc(strings.presentation)}</span>${presentation}</div><aside class="case-copy">${kind?`<span class="case-project-kind">${esc(kind)}</span>`:''}<h2>${esc(x.projectAbout)}</h2><p>${description}</p>${tagList}${pdfActions}</aside></div><div class="wrap"><div class="case-rights-notice"><span class="case-rights-heading">${esc(portfolioRights[language].heading)}</span><p>${esc(portfolioRights[language].detail)}</p></div></div></section>`;
+ return `<section class="page-hero project-detail-hero"><div class="wrap"><a class="inline-link back-link" href="#/projects">${linkLabel(x.projectBack,'left',true)}</a><h1 class="display-heading">${title}<span class="period">.</span></h1></div></section><section class="section case-section"><div class="wrap case-layout"><div class="case-presentation"><span class="case-overline">${esc(strings.presentation)}</span>${presentation}</div><aside class="case-copy">${kind?`<span class="case-project-kind">${esc(kind)}</span>`:''}<h2>${esc(x.projectAbout)}</h2><p>${description}</p>${roleBlock}${tagList}${pdfActions}</aside></div><div class="wrap"><div class="case-rights-notice"><span class="case-rights-heading">${esc(portfolioRights[language].heading)}</span><p>${esc(portfolioRights[language].detail)}</p></div></div></section>`;
 }
 function render(){
  const t=translations();const x=extra();const current=path();

@@ -321,3 +321,9 @@
   .footer-legal-wrap{margin-top:32px;padding-top:17px}
   #footer-rights-notice.footer-rights-notice{margin-left:0;max-width:100%;font-size:12px;line-height:1.7}
 }
+
+/* V15 · Il contributo personale nella scheda progetto */
+.case-role{margin-top:26px;padding:17px 20px;border-left:2px solid var(--burgundy);background:rgba(217,169,181,.12)}
+.case-role h3{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--burgundy);margin:0 0 10px}
+.case-role p{font-size:13px;line-height:1.8;max-width:50ch;margin:0}
+@media(max-width:640px){.case-role{padding:15px 17px}}
