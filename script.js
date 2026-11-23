@@ -89,7 +89,7 @@ const extras = {
       ['Determinazione','Quando credo in un progetto, cerco una strada per portarlo avanti, anche davanti agli imprevisti.']
     ],
     timeline:[
-      ['2025 – Oggi','INDUSTRY','Project Manager & Marketing Strategist','Gestione di progetti integrati tra marketing, web, e-commerce, advertising e iniziative offline; coordinamento di team, budget e tempi. Sviluppo di strumenti operativi con Google Sheets e Looker Studio.'],
+      ['Mag 2025 – Dic 2026','INDUSTRY','Project Manager & Marketing Strategist','Gestione di progetti integrati tra marketing, web, e-commerce, advertising e iniziative offline; coordinamento di team, budget e tempi. Sviluppo di strumenti operativi con Google Sheets e Looker Studio.'],
       ['Apr – Mag 2025','INDUSTRY','Copywriting & Digital Analytics Intern','Produzione di contenuti di comunicazione e supporto all’analisi delle performance digitali.'],
       ['2023','Ryder Cup','Event Staff','Supporto operativo durante una manifestazione sportiva internazionale, in un contesto multiculturale.'],
       ['2020 – 2024','Bimbo Mix','Event Manager','Organizzazione di eventi, coordinamento delle attività e gestione delle necessità operative.'],
@@ -122,7 +122,7 @@ const extras = {
       ['Determination','When I believe in a project, I find a way forward, even when plans need to change.']
     ],
     timeline:[
-      ['2025 – Present','INDUSTRY','Project Manager & Marketing Strategist','Managing integrated marketing projects across web, e-commerce, advertising and offline initiatives; coordinating teams, budgets and timelines. Developing workflow tools with Google Sheets and Looker Studio.'],
+      ['May 2025 – Dec 2026','INDUSTRY','Project Manager & Marketing Strategist','Managing integrated marketing projects across web, e-commerce, advertising and offline initiatives; coordinating teams, budgets and timelines. Developing workflow tools with Google Sheets and Looker Studio.'],
       ['Apr – May 2025','INDUSTRY','Copywriting & Digital Analytics Intern','Creating communication content and supporting digital performance analysis.'],
       ['2023','Ryder Cup','Event Staff','Operational support at an international sporting event in a multicultural environment.'],
       ['2020 – 2024','Bimbo Mix','Event Manager','Organising events, coordinating activities and managing on-site needs.'],
@@ -155,7 +155,7 @@ const extras = {
       ['Determinación','Cuando creo en un proyecto, encuentro la forma de avanzar, incluso cuando hay imprevistos.']
     ],
     timeline:[
-      ['2025 – Actualidad','INDUSTRY','Project Manager & Marketing Strategist','Gestión de proyectos integrados de marketing, web, e-commerce, publicidad e iniciativas offline; coordinación de equipos, presupuestos y plazos. Desarrollo de herramientas con Google Sheets y Looker Studio.'],
+      ['May 2025 – Dec 2026','INDUSTRY','Project Manager & Marketing Strategist','Gestión de proyectos integrados de marketing, web, e-commerce, publicidad e iniciativas offline; coordinación de equipos, presupuestos y plazos. Desarrollo de herramientas con Google Sheets y Looker Studio.'],
       ['Abr – May 2025','INDUSTRY','Copywriting & Digital Analytics Intern','Creación de contenidos de comunicación y apoyo al análisis del rendimiento digital.'],
       ['2023','Ryder Cup','Event Staff','Apoyo operativo en un evento deportivo internacional y un entorno multicultural.'],
       ['2020 – 2024','Bimbo Mix','Event Manager','Organización de eventos, coordinación de actividades y gestión de necesidades operativas.'],
